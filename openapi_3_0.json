@@ -24,15 +24,13 @@
   },
   "security": [
     {
-      "apiKey": []
+      "apiKey": ["securitySchemes"]
     }
   ],
   "paths": {
     "/v1/{partner-id}/wallet_types": {
       "get": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Get the list of available wallet types",
         "description": "Use this endpoint retrieves all wallet_types being used in your FLYY account",
         "parameters": [
@@ -83,9 +81,7 @@
     },
     "/v1/{partner-id}/user/{ext-user-id}/wallet/{wallet-type-id}/credits": {
       "get": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Get credit statement for the specified wallet type",
         "description": "Use this endpoint to retrieve credit statement of the specified wallet type",
         "parameters": [
@@ -168,9 +164,7 @@
     },
     "/v1/{partner-id}/user/{ext-user-id}/wallet/{wallet-type-id}/debits": {
       "get": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Get debit statement for the specified wallet type",
         "description": "Use this endpoint to retrieve debit statement of the specified wallet type",
         "parameters": [
@@ -253,9 +247,7 @@
     },
     "/v1/{partner-id}/user/{ext-user-id}/wallet/{wallet-type-id}": {
       "get": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Get wallet balance of a user in the specified wallet type",
         "description": "Use this endpoint to fetch balance of a user in the specified wallet type",
         "security": [
@@ -314,9 +306,7 @@
     },
     "/v1/{partner-id}/stage-user": {
       "post": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Create a Stage User",
         "description": "Use this endpoint to create a user for API testing purposes. This will only work in stage APIs",
         "requestBody": {
@@ -362,9 +352,7 @@
     },
     "/v1/{partner-id}/user": {
       "post": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Create a User",
         "description": "Use this endpoint to create a user in the Flyy backend",
         "requestBody": {
@@ -410,9 +398,7 @@
     },
     "/v1/{partner-id}/variants": {
       "post": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Create a Referral Campaign Variant",
         "description": "Use this endpoint to create a referral campaign variant in the Flyy backend",
         "requestBody": {
@@ -462,9 +448,7 @@
     },
     "/v1/{partner-id}/variants/{variant-id}": {
       "put": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Update the Referral Campaign Variant conditions",
         "description": "Use this update conditions in the referral campaign variant",
         "requestBody": {
@@ -520,9 +504,7 @@
     },
     "/v1/{partner-id}/variants/4": {
       "get": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Get the Referral Campaign Variant",
         "description": "Get the Referral Campaign Variant",
         "parameters": [
@@ -552,9 +534,7 @@
     },
     "/v1/{partner-id}/user/a3ebf518e8e747b2b0a147c09c22a9f7/referral_link": {
       "get": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Get User Referral Link",
         "description": "Use this endpoint to get a user's referral link from the Flyy backend",
         "security": [
@@ -594,9 +574,7 @@
     },
     "/v1/{partner-id}/user/{ext-user-id}": {
       "get": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Get User Data",
         "description": "Use this endpoint to fetch user details from the Flyy backend",
         "parameters": [
@@ -640,9 +618,7 @@
     },
     "/v1/{partner-id}/user_wallet/credit": {
       "post": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Credit value to user's wallet",
         "description": "Use this endpoint to credit any amount to user's wallet of the specified type ",
         "requestBody": {
@@ -701,9 +677,7 @@
     },
     "/v1/{partner-id}/user_wallet/credit/initiate": {
       "post": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Initiate Credit request for a user's wallet",
         "description": "Use this endpoint to initiate credit request into user's wallet of the specified type",
         "requestBody": {
@@ -759,9 +733,7 @@
     },
     "/v1/{partner-id}/user_wallet/debit/initiate": {
       "post": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Initiate Debit request for a user's wallet",
         "description": "Use this endpoint to initiate debit request into user's wallet of the specified type",
         "requestBody": {
@@ -1043,9 +1015,7 @@
     },
     "/v1/{partner-id}/user_wallet/debit": {
       "post": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Debit value from user's wallet",
         "description": "Use this endpoint to debit any amount from user's wallet of the specified type ",
         "requestBody": {
@@ -1103,9 +1073,81 @@
     },
     "/v2/{partner-id}/user_event": {
       "post": {
-        "tags": [
-          "default"
+        "tags": ["default"],
+        "summary": "Sending User Event",
+        "description": "Use this endpoint to post an event for a particular user in your FLYY account",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "ext_user_id": "9aghdqep38lij2d",
+                  "event_key": "test_event_1",
+                  "event_data": {
+                    "amount": 5000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
         ],
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "id": 11423,
+                  "entity": "user_event",
+                  "event_key": "transaction",
+                  "ext_user_id": 123,
+                  "event_data": {},
+                  "created_at": 1572505143,
+                  "additional_data": {
+                    "reward_generated": true,
+                    "reward": {
+                      "id": 123,
+                      "value": 10,
+                      "wallet_type": {
+                        "id": 5,
+                        "name": "Cash"
+                      }
+                    },
+                    "campaign": {
+                      "id": 11,
+                      "title": "",
+                      "description": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v5/{partner-id}/user_event": {
+      "post": {
+        "tags": ["default"],
         "summary": "Sending User Event",
         "description": "Use this endpoint to post an event for a particular user in your FLYY account",
         "requestBody": {
@@ -1179,9 +1221,7 @@
     },
     "/v1/{partner-id}/user/{ext-user-id}/user_token": {
       "post": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "User Token API",
         "description": "Use this request to get ext_user_token to be used for initializing the Web SDK",
         "requestBody": {
@@ -1232,9 +1272,7 @@
     },
     "/v1/{partner-id}/get_segments": {
       "get": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Get Segment List",
         "description": "This gets the list of segments in your account",
         "parameters": [
@@ -1267,9 +1305,7 @@
     },
     "/v1/{partner-id}/segments/{segment_id}": {
       "put": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Update Segment Title",
         "requestBody": {
           "content": {
@@ -1321,9 +1357,7 @@
     },
     "/v1/{partner-id}/user/{ext-user-id}/add_segment": {
       "post": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Add a user to a segment",
         "description": "This API adds the user with ext-user-id to the segment specified by segment_key. If the segment is not present then a new Segment is created.",
         "requestBody": {
@@ -1377,9 +1411,7 @@
     },
     "/v1/{partner-id}/user/{ext-user-id}/remove_segment": {
       "post": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Remove User from a Segment",
         "requestBody": {
           "content": {
@@ -1431,9 +1463,7 @@
     },
     "/v1/{partner-id}/user/{ext-user-id}/user_segments": {
       "get": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Get User Segments",
         "description": "This API will give you the list of segments that the user is mapped to",
         "parameters": [
@@ -1474,9 +1504,7 @@
     },
     "/v1/{partner-id}/quizzes": {
       "get": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "List all Quiz",
         "parameters": [
           {
@@ -1516,9 +1544,7 @@
     },
     "/v1/{partner-id}/user/{ext-user-id}/properties": {
       "post": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Set User Properties",
         "requestBody": {
           "content": {
@@ -1565,9 +1591,7 @@
     },
     "/v1/{partner-id}/user/{ext-user-id}/offers": {
       "get": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Get offers data",
         "description": "Use this endpoint to retrieve the offers data for specific user",
         "parameters": [
@@ -1674,9 +1698,7 @@
     },
     "/v1/{partner-id}/user_previous_event": {
       "post": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Sending Past Date User Event",
         "requestBody": {
           "content": {
@@ -1721,9 +1743,7 @@
     },
     "/v1/{partner-id}/referral_history": {
       "get": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Get Referral History",
         "security": [
           {
@@ -1752,9 +1772,7 @@
     },
     "/v1/{partner-id}/verify_referrer_code/{code}": {
       "get": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Verify Referrer Code",
         "security": [
           {
@@ -1791,9 +1809,7 @@
     },
     "/v1/{partner-id}/user/{ext-user-id}/validate_referrer": {
       "put": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Validate Referrer linked with a User",
         "requestBody": {
           "content": {
@@ -1837,9 +1853,7 @@
     },
     "/v1/{partner-id}/user/{ext-user-id}/validate_device": {
       "get": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Validate User's Device Uniqueness",
         "parameters": [
           {
@@ -1871,9 +1885,7 @@
     },
     "/v1/{partner-id}/user/{ext-user-id}/update_referral_code/ABCD": {
       "put": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Update User's Referral Code",
         "requestBody": {
           "content": {
@@ -1915,9 +1927,7 @@
     },
     "/v1/{partner-id}/users/reset_users": {
       "post": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Delete users with GAID",
         "requestBody": {
           "content": {
@@ -1958,9 +1968,7 @@
     },
     "/v1/{partner-id}/user/{ext-user-id}/referral_history": {
       "get": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Get Specific User's Referral History",
         "security": [
           {
@@ -2005,9 +2013,7 @@
     },
     "/v1/{partner-id}/segments/{segment-key}": {
       "get": {
-        "tags": [
-          "default"
-        ],
+        "tags": ["default"],
         "summary": "Get User IDs in a Segment",
         "security": [
           {
@@ -2149,10 +2155,176 @@
                   "response_code": 200,
                   "entity": "segment_users",
                   "segment_key": "newtest",
-                  "segment_users": [
-                    "MNOP",
-                    "IJKL",
-                    "EFGH"
+                  "segment_users": ["MNOP", "IJKL", "EFGH"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner}/quiz_tournaments": {
+      "get": {
+        "tags": ["default"],
+        "summary": "Get Live Quiz Tournaments",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "nginx"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Thu, 16 Dec 2021 12:31:35 GMT"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Transfer-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "chunked"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "X-Frame-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "SAMEORIGIN"
+                }
+              },
+              "X-XSS-Protection": {
+                "schema": {
+                  "type": "string",
+                  "example": "1; mode=block"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "nosniff"
+                }
+              },
+              "X-Download-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "noopen"
+                }
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "schema": {
+                  "type": "string",
+                  "example": "none"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "type": "string",
+                  "example": "strict-origin"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"ca33ed56c10fc4432311acd235914c14\""
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=0, private, must-revalidate"
+                }
+              },
+              "X-Request-Id": {
+                "schema": {
+                  "type": "string",
+                  "example": "ca4c2540-18ae-437f-9f3e-1e9eb5e8c9e4"
+                }
+              },
+              "X-Runtime": {
+                "schema": {
+                  "type": "number",
+                  "example": "0.018935"
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "Strict-Transport-Security": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=31536000; includeSubDomains; preload"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "success": true,
+                  "message": "success",
+                  "quiz_tournaments": [
+                    {
+                      "quiz_tournament_id": 2575,
+                      "title": "Test week",
+                      "offer_id": 17932,
+                      "prize_type": "Cash",
+                      "start_date": "06/02/2024",
+                      "end_date": "20/02/2024",
+                      "start_time": "15:53",
+                      "end_time": "18:03",
+                      "quiz_tournament_games": [
+                        {
+                          "id": 4580,
+                          "starts_at": "2024-02-20T15:53:00.000+05:30",
+                          "ends_at": "2024-02-20T18:03:00.000+05:30"
+                        },
+                        {
+                          "id": 4579,
+                          "starts_at": "2024-02-13T15:53:00.000+05:30",
+                          "ends_at": "2024-02-13T18:03:00.000+05:30"
+                        },
+                        {
+                          "id": 4578,
+                          "starts_at": "2024-02-06T15:53:00.000+05:30",
+                          "ends_at": "2024-02-06T18:03:00.000+05:30"
+                        }
+                      ]
+                    }
                   ]
                 }
               }
