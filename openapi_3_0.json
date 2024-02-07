@@ -1,0 +1,2170 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "FLYY Partner APIs",
+    "description": "FLYY Partner APIs enable you to interact with the FLYY system\n\n# Overview\nProduction APIs are restricted by IP. For testing you can use the staging APIs.\n\nFor staging replace partner-api.theflyy.com with stage-partner-api.theflyy.com\n\n\n# Authentication\nEvery partner is given a partner_key to interact with the APIs which needs to be passed in the header as PARTNER-KEY",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://partner-api.theflyy.com"
+    },
+    {
+      "url": "https://stage-partner-api.theflyy.com"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "apiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "PARTNER-KEY"
+      }
+    }
+  },
+  "security": [
+    {
+      "apiKey": []
+    }
+  ],
+  "paths": {
+    "/v1/{partner-id}/wallet_types": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Get the list of available wallet types",
+        "description": "Use this endpoint retrieves all wallet_types being used in your FLYY account",
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "entity": "collection",
+                  "count": 2,
+                  "items": [
+                    {
+                      "id": 5,
+                      "entity": "wallet_type",
+                      "name": "Cash"
+                    },
+                    {
+                      "id": 6,
+                      "entity": "wallet_type",
+                      "name": "Points"
+                    }
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user/{ext-user-id}/wallet/{wallet-type-id}/credits": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Get credit statement for the specified wallet type",
+        "description": "Use this endpoint to retrieve credit statement of the specified wallet type",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "1"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "10"
+          },
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "ext-user-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "wallet-type-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "entity": "collection",
+                  "count": 2,
+                  "items": [
+                    {
+                      "id": 5,
+                      "entity": "wallet_credit",
+                      "value": 10,
+                      "ext_user_id": "<ext-user-id>",
+                      "credit_reason": "",
+                      "credit_reference": ""
+                    },
+                    {
+                      "id": 6,
+                      "entity": "wallet_credit",
+                      "value": 10,
+                      "ext_user_id": "<ext-user-id>",
+                      "credit_reason": "",
+                      "credit_reference": ""
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user/{ext-user-id}/wallet/{wallet-type-id}/debits": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Get debit statement for the specified wallet type",
+        "description": "Use this endpoint to retrieve debit statement of the specified wallet type",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "1"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "10"
+          },
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "ext-user-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "wallet-type-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "entity": "collection",
+                  "count": 2,
+                  "items": [
+                    {
+                      "id": 5,
+                      "entity": "wallet_debit",
+                      "value": 10,
+                      "ext_user_id": "<ext-user-id>",
+                      "debit_reason": "",
+                      "debit_reference": ""
+                    },
+                    {
+                      "id": 6,
+                      "entity": "wallet_debit",
+                      "value": 10,
+                      "ext_user_id": "<ext-user-id>",
+                      "debit_reason": "",
+                      "debit_reference": ""
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user/{ext-user-id}/wallet/{wallet-type-id}": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Get wallet balance of a user in the specified wallet type",
+        "description": "Use this endpoint to fetch balance of a user in the specified wallet type",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "ext-user-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "wallet-type-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "entity": "wallet",
+                  "wallet_type_id": "<wallet-type-id>",
+                  "balance": 100,
+                  "ext_user_id": "<ext-user-id>",
+                  "last_balance_updated": "<timestamp>",
+                  "last_credit": "<timestamp>",
+                  "last_debit": "<timestamp>"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/stage-user": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Create a Stage User",
+        "description": "Use this endpoint to create a user for API testing purposes. This will only work in stage APIs",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "ext_user_id": "{{ext-user-id}}"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "entity": "user",
+                  "ext_user_id": "<ext-user-id>",
+                  "created_at": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Create a User",
+        "description": "Use this endpoint to create a user in the Flyy backend",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "ext_user_id": "{{partner-id}}"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "entity": "user",
+                  "ext_user_id": "1111",
+                  "created_at": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/variants": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Create a Referral Campaign Variant",
+        "description": "Use this endpoint to create a referral campaign variant in the Flyy backend",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "offer_id": 516,
+                  "event_id": 279,
+                  "min_referrer_reward": 1,
+                  "max_referrer_reward": 10,
+                  "avg_referrer_reward": 6,
+                  "min_referee_reward": null,
+                  "max_referee_reward": null,
+                  "avg_referee_reward": null,
+                  "conditions": "[[{\"type\":\"compare\",\"value\":{\"key\":\"campaign_id\",\"value\":\"campaign_4\",\"operator\":\"=\"}}],[{\"type\":\"compare\",\"value\":{\"key\":\"campaign_id\",\"value\":\"campaign_2\",\"operator\":\"=\"}}]]"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/variants/{variant-id}": {
+      "put": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Update the Referral Campaign Variant conditions",
+        "description": "Use this update conditions in the referral campaign variant",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "min_referrer_reward": 1,
+                  "max_referrer_reward": 10,
+                  "avg_referrer_reward": 6,
+                  "min_referee_reward": null,
+                  "max_referee_reward": null,
+                  "avg_referee_reward": null,
+                  "conditions": "[[{\"type\":\"compare\",\"value\":{\"key\":\"campaign_id\",\"value\":\"campaign_3\",\"operator\":\"=\"}}],[{\"type\":\"compare\",\"value\":{\"key\":\"campaign_id\",\"value\":\"campaign_2\",\"operator\":\"=\"}}]]"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "variant-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/variants/4": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Get the Referral Campaign Variant",
+        "description": "Get the Referral Campaign Variant",
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user/a3ebf518e8e747b2b0a147c09c22a9f7/referral_link": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Get User Referral Link",
+        "description": "Use this endpoint to get a user's referral link from the Flyy backend",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "success": true,
+                  "response_code": 200,
+                  "entity": "referral_link",
+                  "referral_link": "https://stage.flyy.in/SQCJVLN"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user/{ext-user-id}": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Get User Data",
+        "description": "Use this endpoint to fetch user details from the Flyy backend",
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "ext-user-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "entity": "user",
+                  "ext_user_id": "<ext-user-id>",
+                  "created_at": "",
+                  "user_name": "",
+                  "display_name": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user_wallet/credit": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Credit value to user's wallet",
+        "description": "Use this endpoint to credit any amount to user's wallet of the specified type ",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "request_id": "K5Z1S",
+                  "ext_user_id": "7828011085",
+                  "wallet_type_id": 25,
+                  "credit_value": 10,
+                  "credit_reason": "Won for an offer",
+                  "firebase_token": ""
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "id": 2331,
+                  "entity": "wallet_credit",
+                  "request_id": "<request-id>",
+                  "value": 20,
+                  "credit_reason": "Won for an offer",
+                  "created_at": 1572505143
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user_wallet/credit/initiate": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Initiate Credit request for a user's wallet",
+        "description": "Use this endpoint to initiate credit request into user's wallet of the specified type",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "ext_user_id": "7828011085",
+                  "wallet_type_id": 25,
+                  "credit_value": 20
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "id": 2331,
+                  "entity": "wallet_credit_request",
+                  "value": 20,
+                  "request_id": 1234,
+                  "status": "initiated",
+                  "created_at": 1572505143
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user_wallet/debit/initiate": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Initiate Debit request for a user's wallet",
+        "description": "Use this endpoint to initiate debit request into user's wallet of the specified type",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "ext_user_id": "",
+                  "wallet_type_id": 25,
+                  "debit_value": 2
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "nginx/1.14.0 (Ubuntu)"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Sat, 17 Oct 2020 12:05:44 GMT"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Transfer-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "chunked"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "X-Frame-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "SAMEORIGIN"
+                }
+              },
+              "X-XSS-Protection": {
+                "schema": {
+                  "type": "string",
+                  "example": "1; mode=block"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "nosniff"
+                }
+              },
+              "X-Download-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "noopen"
+                }
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "schema": {
+                  "type": "string",
+                  "example": "none"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "type": "string",
+                  "example": "strict-origin-when-cross-origin"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"4bb9f334f229b6d9d5d8847e7b8224ac\""
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=0, private, must-revalidate"
+                }
+              },
+              "X-Request-Id": {
+                "schema": {
+                  "type": "string",
+                  "example": "87384bcf-dcdd-4403-a142-79615cc22ad9"
+                }
+              },
+              "X-Runtime": {
+                "schema": {
+                  "type": "number",
+                  "example": "0.028112"
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "id": 22,
+                  "entity": "wallet_debit_request",
+                  "value": 2,
+                  "request_id": "jajeI",
+                  "status": "initiated",
+                  "created_at": 1602936344
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "nginx/1.14.0 (Ubuntu)"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Sat, 17 Oct 2020 12:03:23 GMT"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Transfer-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "chunked"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "X-Frame-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "SAMEORIGIN"
+                }
+              },
+              "X-XSS-Protection": {
+                "schema": {
+                  "type": "string",
+                  "example": "1; mode=block"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "nosniff"
+                }
+              },
+              "X-Download-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "noopen"
+                }
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "schema": {
+                  "type": "string",
+                  "example": "none"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "type": "string",
+                  "example": "strict-origin-when-cross-origin"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache"
+                }
+              },
+              "X-Request-Id": {
+                "schema": {
+                  "type": "string",
+                  "example": "4ca020f6-0f26-4b3f-b8a4-24cb74140959"
+                }
+              },
+              "X-Runtime": {
+                "schema": {
+                  "type": "number",
+                  "example": "0.060095"
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "success": false,
+                  "response_code": 422,
+                  "error": {
+                    "code": "INSUFFICIENT_FUNDS",
+                    "description": "Insufficient Funds"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "id": 2331,
+                  "entity": "wallet_debit_request",
+                  "value": 20,
+                  "request_id": 1234,
+                  "status": "initiated",
+                  "created_at": 1572505143
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user_wallet/debit": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Debit value from user's wallet",
+        "description": "Use this endpoint to debit any amount from user's wallet of the specified type ",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "request_id": "jajeI",
+                  "ext_user_id": "7828011085",
+                  "wallet_type_id": 25,
+                  "debit_value": 3,
+                  "debit_reason": "Redeemed to PayTM",
+                  "firebase_token": "This is optional"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "id": 3412,
+                  "entity": "wallet_debit",
+                  "request_id": "<request_id>",
+                  "value": 10,
+                  "created_at": 1572505143
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/{partner-id}/user_event": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Sending User Event",
+        "description": "Use this endpoint to post an event for a particular user in your FLYY account",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "ext_user_id": "9aghdqep38lij2d",
+                  "event_key": "test_event_1",
+                  "event_data": {
+                    "amount": 5000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "id": 11423,
+                  "entity": "user_event",
+                  "event_key": "transaction",
+                  "ext_user_id": 123,
+                  "event_data": {},
+                  "created_at": 1572505143,
+                  "additional_data": {
+                    "reward_generated": true,
+                    "reward": {
+                      "id": 123,
+                      "value": 10,
+                      "wallet_type": {
+                        "id": 5,
+                        "name": "Cash"
+                      }
+                    },
+                    "campaign": {
+                      "id": 11,
+                      "title": "",
+                      "description": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user/{ext-user-id}/user_token": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "User Token API",
+        "description": "Use this request to get ext_user_token to be used for initializing the Web SDK",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "is_new": true,
+                  "username": "Test"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "ext-user-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/get_segments": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Get Segment List",
+        "description": "This gets the list of segments in your account",
+        "parameters": [
+          {
+            "name": "partner-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "{{partner-key}}"
+          },
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/segments/{segment_id}": {
+      "put": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Update Segment Title",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "segment_title": "rajasthan"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "partner-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "{{partner-key}}"
+          },
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "segment_id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user/{ext-user-id}/add_segment": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Add a user to a segment",
+        "description": "This API adds the user with ext-user-id to the segment specified by segment_key. If the segment is not present then a new Segment is created.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "segment_title": "Test",
+                  "segment_key": "title"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "partner-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "{{partner-key}}"
+          },
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "ext-user-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user/{ext-user-id}/remove_segment": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Remove User from a Segment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "segment_key": "title"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "partner-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "{{partner-key}}"
+          },
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "ext-user-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user/{ext-user-id}/user_segments": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Get User Segments",
+        "description": "This API will give you the list of segments that the user is mapped to",
+        "parameters": [
+          {
+            "name": "partner-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "{{partner-key}}"
+          },
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "ext-user-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/quizzes": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "List all Quiz",
+        "parameters": [
+          {
+            "name": "per_page",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "10"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "1"
+          },
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user/{ext-user-id}/properties": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Set User Properties",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "properties": {
+                    "activation_date": "20 Jan 2020",
+                    "age": 50
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "ext-user-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user/{ext-user-id}/offers": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Get offers data",
+        "description": "Use this endpoint to retrieve the offers data for specific user",
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "ext-user-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "success": true,
+                  "response_code": 200,
+                  "entity": "collection",
+                  "user_name": "User Test",
+                  "ext_uid": "78xxxxxxx5",
+                  "count": 5,
+                  "items": [
+                    {
+                      "id": 2514,
+                      "title": "<p>dvsfv</p>",
+                      "description": "<p>dvsfv</p>",
+                      "details": "<p>dvv</p>",
+                      "show_banner": false,
+                      "offer_type_code": "checkin",
+                      "currency_label": "Points",
+                      "currency_icon_url": "https://stage-partner-api.theflyy.com/assets/currency_icons/25/points1.png",
+                      "button_text": "Check In",
+                      "image_url": "https://ghc-stage.theflyy.com/assets/flyy_offers/default_checkin_offer.png",
+                      "checked_in_today": true,
+                      "current_day": 1,
+                      "total_days": 5,
+                      "prizes": [
+                        {
+                          "min_price": 1,
+                          "max_price": 5,
+                          "day": 1
+                        },
+                        {
+                          "min_price": 1,
+                          "max_price": 5,
+                          "day": 5
+                        }
+                      ]
+                    },
+                    {
+                      "title": "<p><b><u><i><font color=\"#ff0000\">My Paisaa Quiz Zone&nbsp;</font></i></u></b></p><p><br></p>",
+                      "description": "<p><b><u><i><font color=\"#0000ff\">Play quizzes and earn rewards</font></i></u></b></p>",
+                      "show_banner": false,
+                      "offer_type_code": "quiz",
+                      "button_text": "Play",
+                      "image_url": null
+                    },
+                    {
+                      "title": "test123",
+                      "description": "sdfg",
+                      "offer_type_code": "stamp_campaign",
+                      "button_text": "Play"
+                    },
+                    {
+                      "title": "<p>Game zone</p>",
+                      "description": "<p>Play and earn scratch card testing in ios native&nbsp;</p>",
+                      "show_banner": false,
+                      "offer_type_code": "game",
+                      "button_text": "Play",
+                      "image_url": null
+                    },
+                    {
+                      "id": 2495,
+                      "title": "<p>testing&nbsp;</p>",
+                      "description": "<p>Testing</p>",
+                      "details": "",
+                      "show_banner": false,
+                      "offer_type_code": "daily_offer",
+                      "currency_label": "Points",
+                      "currency_icon_url": "https://stage-partner-api.theflyy.com/assets/currency_icons/25/points1.png",
+                      "image_url": "https://ghc-stage.theflyy.com/assets/flyy_offers/default_daily_offer.png"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user_previous_event": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Sending Past Date User Event",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "ext_user_id": "9632266055",
+                  "event_key": "test_event_1",
+                  "event_data": {},
+                  "firebase_token": "",
+                  "datetime": "12-05-2021 12:34:00"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/referral_history": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Get Referral History",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/verify_referrer_code/{code}": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Verify Referrer Code",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user/{ext-user-id}/validate_referrer": {
+      "put": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Validate Referrer linked with a User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "is_valid": true
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "ext-user-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user/{ext-user-id}/validate_device": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Validate User's Device Uniqueness",
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "ext-user-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user/{ext-user-id}/update_referral_code/ABCD": {
+      "put": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Update User's Referral Code",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": ""
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "ext-user-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/users/reset_users": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Delete users with GAID",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "gaid": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/user/{ext-user-id}/referral_history": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Get Specific User's Referral History",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "1"
+          },
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "ext-user-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/{partner-id}/segments/{segment-key}": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Get User IDs in a Segment",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "segment-key",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "nginx"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Thu, 16 Dec 2021 12:31:35 GMT"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Transfer-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "chunked"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "X-Frame-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "SAMEORIGIN"
+                }
+              },
+              "X-XSS-Protection": {
+                "schema": {
+                  "type": "string",
+                  "example": "1; mode=block"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "nosniff"
+                }
+              },
+              "X-Download-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "noopen"
+                }
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "schema": {
+                  "type": "string",
+                  "example": "none"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "type": "string",
+                  "example": "strict-origin"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"ca33ed56c10fc4432311acd235914c14\""
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=0, private, must-revalidate"
+                }
+              },
+              "X-Request-Id": {
+                "schema": {
+                  "type": "string",
+                  "example": "ca4c2540-18ae-437f-9f3e-1e9eb5e8c9e4"
+                }
+              },
+              "X-Runtime": {
+                "schema": {
+                  "type": "number",
+                  "example": "0.018935"
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "Strict-Transport-Security": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=31536000; includeSubDomains; preload"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "success": true,
+                  "response_code": 200,
+                  "entity": "segment_users",
+                  "segment_key": "newtest",
+                  "segment_users": [
+                    "MNOP",
+                    "IJKL",
+                    "EFGH"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-readme": {
+    "explorer-enabled": true,
+    "proxy-enabled": true,
+    "samples-enabled": true
+  }
+}
