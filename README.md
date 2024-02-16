@@ -2,6 +2,47 @@ Api: Flyy Partner
 
 //
 
+name: Add a user to a segment
+
+desc: This API adds the user with ext-user-id to the segment specified by segment_key. If the segment is not present then a new Segment is created.
+
+method: "POST"
+
+url: "/v1/{partner-id}/user/{ext-user-id}/add_segment"
+
+example : /v1/12345bef00abc/user/123/add_segment
+
+case:
+
+success: true
+
+            o/p: {
+                "success": true,
+                "response_code": 200,
+                "entity": "user_segment",
+                "ext_user_id": "123",
+                "segment_title": "Test",
+                "segment_key": "title",
+                "created_at": 1708088202
+            }
+
+success: false 
+
+          o/p: {
+              "success": false,
+              "response_code": 422,
+              "error": {
+                  "code": "PARAMETERS_MISSING",
+                  "description": "Missing segment_key",
+                  "missing_fields": [
+                      "segment_key"
+                  ]
+              }
+          }
+
+          
+//
+
 name: Remove User from a Segment
 
 desc: This API will Remove the User from a specified Segment
@@ -168,7 +209,7 @@ success: true
                   "success": true,
                   "response_code": 200,
                   "entity": "user",
-                  "ext_user_id": "7828011085",
+                  "ext_user_id": "123",
                   "properties": {
                       "age": 50,
                       "test": 10,
@@ -268,7 +309,7 @@ url:"/v1/{partner-id}/user_previous_event"
 example : /v1/12345bef00abc/user_previous_event
 
          body: { 
-            "ext_user_id": "7828011085", "event_key": "330", "event_data": {}, "firebase_token": "", "datetime": "12-05-2021 12:34:00"
+            "ext_user_id": "123", "event_key": "330", "event_data": {}, "firebase_token": "", "datetime": "12-05-2021 12:34:00"
          }
 
 case:
