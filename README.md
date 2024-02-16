@@ -1,5 +1,40 @@
 Api: Flyy Partner
 
+//
+
+name: Validate Referrer linked with a User
+
+desc: Validate Referrer linked with a User
+
+method: "GET"
+
+url: "/v1/{partner-id}/user/{ext-user-id}/validate_referrer"
+
+example : /v1/12345bef00abc/user/123/validate_referrer
+
+case:
+
+success: true
+
+
+success: false
+            o/p: {
+              "success": false,
+              "response_code": 422,
+              "error": {
+                  "code": "INVALID_DATA",
+                  "description": "Invalid Ext User Id.",
+                  "invalid_fields": [
+                      "ext_user_id"
+                  ]
+              }
+          }
+          o/p: {
+              "success": false,
+              "response_code": 422,
+              "message": "No Referrer linked with given User"
+          }
+
 
 //
 
