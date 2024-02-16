@@ -1,4 +1,4 @@
-Api:
+Api: Flyy Partner
 
 name: Transfer Requests,
 
