@@ -3,6 +3,43 @@ Api: Flyy Partner
 
 //
 
+name: Validate User's Device Uniqueness
+
+desc: Validate User's Device Uniqueness
+
+method: "GET"
+
+url: "/v1/{partner-id}/user/{ext-user-id}/validate_device"
+
+example : /v1/12345bef00abc/user/123/validate_device
+
+case:
+
+success: true
+
+             o/p: {
+                "success": true,
+                "response_code": 200,
+                "is_uniq": false
+            }
+
+
+success: false
+
+            o/p: {
+                            "success": false,
+                            "response_code": 422,
+                            "error": {
+                                "code": "INVALID_DATA",
+                                "description": "Invalid Ext User Id.",
+                                "invalid_fields": [
+                                    "ext_user_id"
+                                ]
+                            }
+                        }
+
+//
+
 name: Update User's Referral Code
 
 desc: Update User's Referral Code
@@ -11,7 +48,7 @@ method: "PUT"
 
 url: "/v1/{{partner-id}}/user/{{ext-user-id}}/update_referral_code/ABCD"
 
-example : /v1/{{partner-id}}/user/123/update_referral_code/ABCD
+example : /v1/12345bef00abc/user/123/update_referral_code/ABCD
 
 case:
 
