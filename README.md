@@ -3,6 +3,41 @@ Api: Flyy Partner
 
 //
 
+name: Get Segment List
+
+desc: This gets the list of segments in your account and returns in array of segments
+
+method: "GET"
+
+url: "/v1/{partner-id}/get_segments"
+
+example : /v1/12345bef00abc/get_segments
+
+case:
+
+success: true
+
+                o/p: {
+                    "success": true,
+                    "response_code": 200,
+                    "entity": "collection",
+                    "count": 71,
+                    "items": [
+                        {
+                            "id": 15558,
+                            "key": "ti33333",
+                            "title": "Ti33333"
+                        },
+                        {
+                            "id": 15557,
+                            "key": "title3333333",
+                            "title": "Test333"
+                        },
+                        ]
+                }
+
+//
+
 name: Update Segment Title
 
 desc: Validate User's Device Uniqueness
