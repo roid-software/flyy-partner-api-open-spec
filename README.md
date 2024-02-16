@@ -3,9 +3,9 @@ Api: Flyy Partner
 //
 
 
-name: 
+name: Get User IDs in a Segment
 
-desc: 
+desc: Get User IDs in a Segment using Segment key
 
 method: "GET"
 
