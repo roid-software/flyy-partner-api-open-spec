@@ -2,6 +2,57 @@ Api: Flyy Partner
 
 //
 
+name: Get User Segments
+
+desc: This API will give you the list of segments that the user is mapped to
+
+method: "GET"
+
+url: "/v1/{partner-id}/user/{ext-user-id}/user_segments"
+
+example : /v1/12345bef00abc/user/123/user_segments
+
+case:
+
+success: true
+
+              o/p: {
+                  "success": true,
+                  "response_code": 200,
+                  "entity": "collection",
+                  "count": 2,
+                  "items": [
+                      {
+                          "id": 3404,
+                          "segment_title": "Kotak Securities test",
+                          "key": "kotak securities test"
+                      },
+                      {
+                          "id": 2637,
+                          "segment_title": "Test User 1",
+                          "key": "test_user_1"
+                      },
+                      
+                  ]
+              }
+
+
+success: false
+
+            o/p: {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "INVALID_DATA",
+                    "description": "Invalid Ext User Id",
+                    "invalid_fields": [
+                        "ext_user_id"
+                    ]
+                }
+            }
+
+//
+
 name: List all Quiz
 
 desc: List all Quiz from collection return's array of quizzes
