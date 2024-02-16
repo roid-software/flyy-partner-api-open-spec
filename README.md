@@ -16,6 +16,12 @@ case:
 
 success: true
 
+            o/p: {
+                "success": true,
+                "response_code": 200,
+                "message": "Successful"
+            }
+
 
 success: false
 
