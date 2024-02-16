@@ -26,9 +26,6 @@ success: true
                 "referrals": []
             }
 
-success: false
-
-
 
 //
 
