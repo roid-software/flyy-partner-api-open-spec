@@ -8,6 +8,36 @@ desc: Verify Referrer Code
 
 method: "GET"
 
+url: "/v1/{partner-id}/referral_history"
+
+example : /v1/12345bef00abc/referral_history
+
+case:
+
+success: true
+
+              o/p:{
+                "success": true,
+                "response_code": 200,
+                "entity": "referrals",
+                "total_pages": 1,
+                "current_page": 1,
+                "total_count": 0,
+                "referrals": []
+            }
+
+success: false
+
+
+
+//
+
+name: Verify Referrer Code
+
+desc: Verify Referrer Code
+
+method: "GET"
+
 url: "/v1/{partner-id}/verify_referrer_code/{code}"
 
 example : /v1/12345bef00abc/verify_referrer_code/ABC
