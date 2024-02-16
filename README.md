@@ -13,7 +13,7 @@ example : /v1/12345bef00abc/transfer_requests/100/reject
                 "success": true,
                 "message": "Transfer Request with id 100 is under process. with status reject"
             },
-fail cases:
+            fail cases:
             1: status is "rejected"
                 o/p: {
                         "success": false,
