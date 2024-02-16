@@ -8,6 +8,10 @@ desc: Delete users with GAID
 
 method: "POST"
 
+url: "/v1/{{partner-id}}/users/reset_users"
+
+example : /v1/12345bef00abc/users/reset_users
+
 
 body:  
 
@@ -17,9 +21,6 @@ body:
     
 }
 
-url: "/v1/{{partner-id}}/users/reset_users"
-
-example : /v1/12345bef00abc/users/reset_users
 
 case:
 
