@@ -1,5 +1,52 @@
 Api: Flyy Partner
 
+//
+
+name: Get offers data
+
+desc: Use this endpoint to retrieve the offers data for specific user
+
+method: "GET"
+
+url: "/v1/{partner-id}/quizzes"
+
+query string: /quizzes?per_page=10&page=1
+
+example : /v1/12345bef00abc/quizzes
+
+case:
+
+success: true
+
+o/p: {
+    "success": true,
+    "response_code": 200,
+    "entity": "collection",
+    "count": 2,
+    "items": [
+        {
+            "id": 1773,
+            "name": "Test Quiz 01-J16",
+            "timer": 60,
+            "total_questions": 6,
+            "num_questions": 6,
+            "tenant_id": 11,
+            "created_at": "2024-01-16T07:25:03.527+05:30",
+            "updated_at": "2024-01-16T07:25:03.527+05:30"
+        },
+        {
+            "id": 1743,
+            "name": "Test Quiz-24",
+            "timer": 60,
+            "total_questions": 4,
+            "num_questions": 4,
+            "tenant_id": 11,
+            "created_at": "2024-01-02T15:57:49.064+05:30",
+            "updated_at": "2024-01-02T15:57:49.064+05:30"
+        },
+       
+    ]
+}
 
 //
 
