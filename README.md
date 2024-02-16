@@ -2,6 +2,46 @@ Api: Flyy Partner
 
 //
 
+
+name: 
+
+desc: 
+
+method: "GET"
+
+url: "/v1/{partner-id}/segments/{segment-key}"
+
+example : /v1/12345bef00abc/segments/test_segment
+
+case:
+
+success: true
+
+            o/p:  "example": {
+                  "success": true,
+                  "response_code": 200,
+                  "entity": "segment_users",
+                  "segment_key": "newtest",
+                  "segment_users": ["MNOP", "IJKL", "EFGH"]
+                }
+
+success: false
+
+            o/p: {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "INVALID_DATA",
+                    "description": "Invalid Segment Key",
+                    "invalid_fields": [
+                        "segment_key"
+                    ]
+                }
+            }
+
+
+//
+
 name: Quiz Tournaments
 
 desc: Get Live Quiz Tournaments
@@ -11,6 +51,7 @@ method: "GET"
 url: "/v1/{{partner-id}}/quiz_tournaments"
 
 example : /v1/12345bef00abc/quiz_tournaments
+
 case:
 
 success: true
