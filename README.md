@@ -3,9 +3,9 @@ Api: Flyy Partner
 
 //
 
-name: Sending Past Date User Event
+name: Get offers data
 
-desc: Sending Past Date User Event
+desc: Use this endpoint to retrieve the offers data for specific user
 
 method: "GET"
 
@@ -35,7 +35,9 @@ example : /v1/12345bef00abc/user_previous_event
 body:
 
 { 
+
 "ext_user_id": "7828011085", "event_key": "330", "event_data": {}, "firebase_token": "", "datetime": "12-05-2021 12:34:00"
+
 }
 
 case:
