@@ -11,14 +11,58 @@ method: "GET"
 
 url:"/v1/{partner-id}/user/{ext-user-id}/offers"
 
-example : /v1/12345bef00abc/user_previous_event
+example : /v1/12345bef00abc/123/offers
 
 case:
 
 success: true
 
- 
+             o/p: {
+                "success": true,
+                "response_code": 200,
+                "entity": "collection",
+                "user_name": "000",
+                "ext_uid": "000",
+                "count": 3,
+                "items": [
+                    {
+                        "title": "<p>aaa</p>",
+                        "description": "<p>vvvdcddc</p>",
+                        "show_banner": true,
+                        "offer_type_code": "quiz",
+                        "button_text": "Play",
+                        "image_url": "1176"
+                    },
+                    {
+                        "title": "Holi Campain3 ",
+                        "description": "Holi Stamps with milestone",
+                        "offer_type_code": "stamp_campaign",
+                        "button_text": "Play"
+                    },
+                    {
+                        "title": "<p>🎮🎮</p>",
+                        "description": "<p>🎈Win Big🎉</p>",
+                        "show_banner": true,
+                        "offer_type_code": "game",
+                        "button_text": "Play",
+                        "image_url": "485"
+                    }
+                ]
+            }
 
+success: false
+
+            o/p: {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "INVALID_DATA",
+                    "description": "Invalid Ext User Id.",
+                    "invalid_fields": [
+                        "ext_user_id"
+                    ]
+                }
+            }
 
 //
 
