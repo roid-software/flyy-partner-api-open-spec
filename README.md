@@ -3,11 +3,11 @@ Api: Flyy Partner
 
 //
 
-name: Delete users with GAID
+name: Update User's Referral Code
 
-desc: Delete users with GAID
+desc: Update User's Referral Code
 
-method: "POST"
+method: "PUT"
 
 url: "/v1/{{partner-id}}/user/{{ext-user-id}}/update_referral_code/ABCD"
 
