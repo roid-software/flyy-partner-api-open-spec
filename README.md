@@ -3,6 +3,46 @@ Api: Flyy Partner
 
 //
 
+name: Add a user to a segment
+
+desc: This API adds the user with ext-user-id to the segment specified by segment_key. If the segment is not present then a new Segment is created.
+
+method: "POST"
+
+url: "/v1/{partner-id}/user/{ext-user-id}/user_token"
+
+example : /v1/12345bef00abc/user/123/user_token
+
+          body: {"is_new": true, "username": "Test"}
+
+case:
+
+success: true
+            o/p: {
+                "success": true,
+                "response_code": 200,
+                "entity": "user_token",
+                "ext_user_id": "{{ext-user-id}}",
+                "token": "X6LJJDOTyy",
+                "device_id": "74e539df-48f3-489a-b8e3-07a253a163e1"
+            }
+
+success: false
+
+              o/p: {
+                                 "success": false,
+                                  "response_code": 422,
+                                  "error": {
+                                      "code": "INVALID_DATA",
+                                      "description": "Invalid Ext User Id.",
+                                      "invalid_fields": [
+                                          "ext_user_id"
+                                      ]
+                                  }
+                              }
+
+//
+
 name: Get Segment List
 
 desc: This gets the list of segments in your account and returns in array of segments
