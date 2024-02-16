@@ -3,6 +3,57 @@ Api: Flyy Partner
 
 //
 
+name: Set User Properties
+
+desc: Set User Properties specified user
+
+method: "POST"
+
+url: "/v1/{partner-id}/user/{ext-user-id}/properties"
+
+example : /v1/12345bef00abc/user/123/properties
+
+          body: {
+              "properties": {
+                  "activation_date": "20 Jan 2020",
+                  "age": 50
+              }
+          }
+
+case:
+
+success: true
+
+              o/p: {
+                  "success": true,
+                  "response_code": 200,
+                  "entity": "user",
+                  "ext_user_id": "7828011085",
+                  "properties": {
+                      "age": 50,
+                      "test": 10,
+                      "activation_date": "20 Jan 2020"
+                  },
+                  "created_at": 1599112736
+              }
+
+success: false
+
+                o/p: {
+                    "success": false,
+                    "response_code": 422,
+                    "error": {
+                        "code": "INVALID_DATA",
+                        "description": "Invalid Ext User Id.",
+                        "invalid_fields": [
+                            "ext_user_id"
+                        ]
+                    }
+                }
+
+
+//
+
 name: Get offers data
 
 desc: Use this endpoint to retrieve the offers data for specific user
