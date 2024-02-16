@@ -2,9 +2,9 @@ Api: Flyy Partner
 
 //
 
-name: Get offers data
+name: List all Quiz
 
-desc: Use this endpoint to retrieve the offers data for specific user
+desc: List all Quiz from collection return's array of quizzes
 
 method: "GET"
 
