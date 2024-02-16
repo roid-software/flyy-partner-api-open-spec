@@ -7,8 +7,8 @@ desc: Delete users with GAID
 
 method: "POST"
 
-body:  { 
 
+body:  { 
             "gaid": "00000000-0000-0000-0000-000000000000"
             
         }
