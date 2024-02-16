@@ -3,6 +3,7 @@ name: Transfer Requests,
 desc: Transfer Requests api for accept or reject redemption.,
 method: "PUT",
 url: "/v1/{partner-id}/transfer_requests/{transfer_request_id}/{status}",
+
 example : /v1/12345bef00abc/transfer_requests/100/accept
 
             o/p: {
@@ -11,13 +12,12 @@ example : /v1/12345bef00abc/transfer_requests/100/accept
             },
             
 example : /v1/12345bef00abc/transfer_requests/100/reject
-
             o/p: {
                 "success": true,
                 "message": "Transfer Request with id 100 is under process. with status reject"
             },
             
-            fail cases:
+fail cases:
             1: status is "rejected"
                 o/p: {
                         "success": false,
