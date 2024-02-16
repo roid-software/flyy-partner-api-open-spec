@@ -2,6 +2,44 @@ Api: Flyy Partner
 
 //
 
+name: Get Specific User's Referral History
+
+desc: Get Specific User's Referral History
+
+method: "GET"
+
+url: "/v1/{{partner-id}}/user/{{ext-user-id}}/referral_history?page=1"
+
+example : /v1/12345bef00abc/user/{{ext-user-id}}/referral_history
+
+case:
+
+success: true
+
+            o/p: {
+                "success": true,
+                "response_code": 200,
+                "entity": "referrals",
+                "total_pages": 0,
+                "current_page": 1,
+                "total_count": 0,
+                "referrals": []
+            }
+
+success: false
+
+             o/p: {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "INVALID_DATA",
+                    "description": "No Referrer Found."
+                }
+            }
+
+
+
+//
 
 name: Get User IDs in a Segment
 
