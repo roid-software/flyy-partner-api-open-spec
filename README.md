@@ -34,6 +34,7 @@ example : /v1/12345bef00abc/user_previous_event
 
 body:
 
+
 { 
 
 "ext_user_id": "7828011085", "event_key": "330", "event_data": {}, "firebase_token": "", "datetime": "12-05-2021 12:34:00"
