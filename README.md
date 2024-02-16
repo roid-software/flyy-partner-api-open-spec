@@ -8,6 +8,45 @@ desc: Validate Referrer linked with a User
 
 method: "GET"
 
+url: "/v1/{partner-id}/verify_referrer_code/{code}"
+
+example : /v1/12345bef00abc/verify_referrer_code/ABC
+
+case:
+
+success: true
+
+             o/p: {
+                "success": true,
+                "response_code": 200,
+                "entity": "referrer_code",
+                "message": "Referrer Code Valid."
+                "refer_code": "ABC"
+            }
+
+success: false
+
+            o/p: {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "INVALID_DATA",
+                    "description": "Invalid Referrer Code.",
+                    "invalid_fields": [
+                        "referrer_code"
+                    ]
+                }
+            }
+
+
+//
+
+name: Validate Referrer linked with a User
+
+desc: Validate Referrer linked with a User
+
+method: "GET"
+
 url: "/v1/{partner-id}/user/{ext-user-id}/validate_referrer"
 
 example : /v1/12345bef00abc/user/123/validate_referrer
