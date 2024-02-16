@@ -268,13 +268,9 @@ url: "/v1/{{partner-id}}/users/reset_users"
 example : /v1/12345bef00abc/users/reset_users
 
 
-body:  
-
-{ 
-
-    "gaid": "00000000-0000-0000-0000-000000000000"
-    
-}
+        body:  {
+            "gaid": "00000000-0000-0000-0000-000000000000"    
+        }
 
 
 case:
