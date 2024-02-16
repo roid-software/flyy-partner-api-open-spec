@@ -2,9 +2,9 @@ Api: Flyy Partner
 
 //
 
-name: Verify Referrer Code
+name: Get Referral History
 
-desc: Verify Referrer Code
+desc: Get Referral History
 
 method: "GET"
 
