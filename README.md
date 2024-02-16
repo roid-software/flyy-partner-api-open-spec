@@ -2,9 +2,9 @@ Api: Flyy Partner
 
 //
 
-name: Validate Referrer linked with a User
+name: Verify Referrer Code
 
-desc: Validate Referrer linked with a User
+desc: Verify Referrer Code
 
 method: "GET"
 
