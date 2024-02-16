@@ -18,6 +18,7 @@ example : /v1/12345bef00abc/user/123/user_token
 case:
 
 success: true
+
             o/p: {
                 "success": true,
                 "response_code": 200,
