@@ -1,5 +1,73 @@
 Api: Flyy Partner
 
+
+//
+
+name: Sending Past Date User Event
+
+desc: Sending Past Date User Event
+
+method: "GET"
+
+url:"/v1/{partner-id}/user_previous_event"
+
+example : /v1/12345bef00abc/user_previous_event
+
+case:
+
+success: true
+
+ 
+
+
+//
+
+name: Sending Past Date User Event
+
+desc: Sending Past Date User Event
+
+method: "GET"
+
+url:"/v1/{partner-id}/user_previous_event"
+
+example : /v1/12345bef00abc/user_previous_event
+
+case:
+
+success: true
+
+              o/p: {
+                  "success": true,
+                  "response_code": 200,
+                  "id": 1925575787,
+                  "entity": "user_event",
+                  "ext_user_id": "7828011085",
+                  "event_key": "330",
+                  "event_data": null,
+                  "created_at": 1708085335,
+                  "additional_data": {
+                      "reward_generated": false,
+                      "reward": null,
+                      "campaign": null
+                  }
+              }
+
+success: false
+
+            o/p: {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "PARAMETERS_MISSING",
+                    "description": "Missing event_key",
+                    "missing_fields": [
+                        "event_key"
+                    ]
+                }
+            }
+ 
+
+
 //
 
 name: Get Referral History
