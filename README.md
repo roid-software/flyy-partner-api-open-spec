@@ -1,5 +1,43 @@
 Api: Flyy Partner
 
+
+//
+
+name: Delete users with GAID
+
+desc: Delete users with GAID
+
+method: "POST"
+
+url: "/v1/{{partner-id}}/user/{{ext-user-id}}/update_referral_code/ABCD"
+
+example : /v1/{{partner-id}}/user/123/update_referral_code/ABCD
+
+case:
+
+success: true
+
+            o/p: {
+                "success": true,
+                "response_code": 200,
+                "message": "Referral Code Updated"
+            }
+
+success: false
+
+        o/p: {
+            "success": false,
+            "response_code": 422,
+            "error": {
+                "code": "INVALID_DATA",
+                "description": "Invalid Ext User Id.",
+                "invalid_fields": [
+                    "ext_user_id"
+                ]
+            }
+        }
+
+
 //
 
 name: Delete users with GAID
