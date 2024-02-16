@@ -1,6 +1,43 @@
 Api: Flyy Partner
 
 //
+name: Delete users with GAID
+
+desc: Delete users with GAID
+
+method: "POST"
+
+body: { 
+    "gaid": "00000000-0000-0000-0000-000000000000"
+}
+
+url: "/v1/{{partner-id}}/users/reset_users"
+
+example : /v1/12345bef00abc/users/reset_users
+
+case:
+
+success: true
+
+            o/p: {
+                "success": true,
+                "response_code": 200,
+                "entity": "user_action",
+                "message": "Users deleted successfully"
+            }
+
+success: false
+
+            o/p: {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "NO_DATA",
+                    "description": "No User found with given GAID."
+                }
+            }
+
+//
 
 name: Get Specific User's Referral History
 
