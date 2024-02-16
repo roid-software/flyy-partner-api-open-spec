@@ -3,9 +3,9 @@ Api: Flyy Partner
 
 //
 
-name: Add a user to a segment
+name: User Token API
 
-desc: This API adds the user with ext-user-id to the segment specified by segment_key. If the segment is not present then a new Segment is created.
+desc: Use this request to get ext_user_token to be used for initializing the Web SDK
 
 method: "POST"
 
