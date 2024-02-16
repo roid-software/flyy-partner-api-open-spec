@@ -1,5 +1,7 @@
 Api: Flyy Partner
 
+//
+
 name: Quiz Tournaments
 
 desc: Get Live Quiz Tournaments
@@ -56,6 +58,7 @@ success: false
 
 
 //
+
 name: Transfer Requests,
 
 desc: Transfer Requests api for accept or reject redemption.
