@@ -2,6 +2,48 @@ Api: Flyy Partner
 
 //
 
+name: Remove User from a Segment
+
+desc: This API will give you the Remove User from a specified Segment
+
+method: "POST"
+
+url: "/v1/{partner-id}/user/{ext-user-id}/remove_segment"
+
+example : /v1/12345bef00abc/user/123/remove_segment
+
+              body: {
+              "segment_key": "title"
+              }
+
+case:
+
+success: true
+
+            o/p: {
+                "success": true,
+                "response_code": 200,
+                "entity": "user_segment",
+                "description": "User removed from the Segment"
+            }
+
+success: false
+
+                o/p: {
+                    "success": false,
+                    "response_code": 422,
+                    "error": {
+                        "code": "INVALID_DATA",
+                        "description": "Invalid Segment Key",
+                        "invalid_fields": [
+                            "segment_key"
+                        ]
+                    }
+                }
+
+
+//
+
 name: Get User Segments
 
 desc: This API will give you the list of segments that the user is mapped to
