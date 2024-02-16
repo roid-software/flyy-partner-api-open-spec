@@ -1,5 +1,49 @@
 Api: Flyy Partner
 
+
+//
+
+name: Update Segment Title
+
+desc: Validate User's Device Uniqueness
+
+method: "PUT"
+
+url: "/v1/{partner-id}/segments/{segment_id}"
+
+example : /v1/12345bef00abc/segments/100
+
+        body: {
+            "segment_title": "New Title"
+        }
+
+case:
+
+success: true
+
+        o/p: {
+            "success": true,
+            "response_code": 200,
+            "entity": "segment",
+            "description": "Segment Updated",
+            "segment": {
+                "id": 3404,
+                "key": "test_segement",
+                "title": "New Title"
+            }
+        }
+
+success: false
+
+          o/p: {
+              "success": false,
+              "response_code": 422,
+              "error": {
+                  "code": "INVALID_DATA",
+                  "description": "Invalid Segment Id"
+              }
+          }
+
 //
 
 name: Add a user to a segment
@@ -112,13 +156,13 @@ success: true
                   "items": [
                       {
                           "id": 3404,
-                          "segment_title": "Kotak Securities test",
-                          "key": "kotak securities test"
+                          "segment_title": "Test One",
+                          "key": "test_1"
                       },
                       {
                           "id": 2637,
-                          "segment_title": "Test User 1",
-                          "key": "test_user_1"
+                          "segment_title": "Test Two",
+                          "key": "test_2"
                       },
                       
                   ]
