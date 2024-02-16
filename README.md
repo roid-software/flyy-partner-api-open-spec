@@ -23,6 +23,7 @@ example : /v1/12345bef00abc/transfer_requests/100/reject
             },
             
 fail cases:
+
             1: status is "rejected"
                 o/p: {
                         "success": false,
