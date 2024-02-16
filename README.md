@@ -7,12 +7,12 @@ example : /v1/12345bef00abc/transfer_requests/100/accept
             o/p: {
                 "success": true,
                 "message": "Transfer Request with id 100 is under process. with status accept"
-            }
+            },
 example : /v1/12345bef00abc/transfer_requests/100/reject
             o/p: {
                 "success": true,
                 "message": "Transfer Request with id 100 is under process. with status reject"
-            }
+            },
 fail cases:
             1: status is "rejected"
                 o/p: {
