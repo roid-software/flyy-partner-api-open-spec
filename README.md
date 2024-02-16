@@ -11,11 +11,11 @@ method: "POST"
 url: "/v1/{partner-id}/user/{ext-user-id}/add_segment"
 
 example : /v1/12345bef00abc/user/123/add_segment
-
-                                    body: {
-                                    "segment_title": "Test",
-                                    "segment_key": "title"
-                                    }
+  
+            body: {
+                  "segment_title": "Test",
+                  "segment_key": "title"
+                  }
 
 case:
 
