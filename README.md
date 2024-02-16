@@ -11,7 +11,7 @@ method: "GET"
 
 url:"/v1/{partner-id}/user/{ext-user-id}/offers"
 
-example : /v1/12345bef00abc/123/offers
+example : /v1/12345bef00abc/user/123/offers
 
 case:
 
