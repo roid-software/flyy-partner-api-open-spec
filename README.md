@@ -4,7 +4,7 @@ Api: Flyy Partner
 
 name: Remove User from a Segment
 
-desc: This API will give you the Remove User from a specified Segment
+desc: This API will Remove the User from a specified Segment
 
 method: "POST"
 
