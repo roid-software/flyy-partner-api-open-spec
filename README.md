@@ -829,6 +829,115 @@ success: **false**
 }
 
 
+## name: <ins>Unscartched Scratchcards</ins>
+
+desc: List all Unscartched Scratchcards with specified from_date => to_date :or last 30days from today.
+
+method: **"GET"**
+
+url: *"/v1/{{partner-id}}/get_unscratched_scratchcards"*
+
+example : /v1/12345bef00abc/get_unscratched_scratchcards?from_date=01-07-2023&to_date=30-07-2023
+
+    query_parms:
+                key: from_date    value: "01-01-2020"
+                key: to_date    value: "10-01-2020"
+
+case:
+
+success: **true**
+
+            o/p: {
+                "success": true,
+                "unscratched_scratchcards": [
+                    {
+                        "id": 49219744,
+                        "offer_id": 12243,
+                        "ref_num": "qwLJb",
+                        "ext_uid": "124",
+                        "value": 0,
+                        "message": "Earned for dd",
+                        "created_at": "2024-02-19T12:29:30.724+05:30"
+                    },
+                    {
+                        "id": 49219745,
+                        "offer_id": 12243,
+                        "ref_num": "1Pgox",
+                        "ext_uid": "1234_redected",
+                        "value": 0,
+                        "message": "Earned for dd",
+                        "created_at": "2024-02-19T12:29:45.358+05:30"
+                    },
+                  ]
+                },
+
+success: **false**
+
+
+
+        {
+            "success": false,
+            "message": "Unscartched Scartch Cards Not Present!"
+        }
+
+
+## name: <ins>Expiry Scratchcards</ins>
+
+desc: Expire Scratch Card using ref_num of scratch_card, pass ref_num in array of request body to make it expired.
+
+method: **"POST"**
+
+url: *"/v1/{{partner-id}}/expiry_partner_scratchcards"*
+
+example : /v1/12345bef00abc/expiry_partner_scratchcards
+
+    body:{
+            "is_expired": true,
+            "expiration_message": "Uh oh!, You haven't redeemed your reward.",
+            "ref_nums": ["UGUHx","xghLg"]
+        }
+
+case:
+
+success: **true**
+
+    o/p: {
+        "success": true,
+        "message": "Expiry Triggered"
+    }
+
+
+
+
+## name: <ins>Delete User</ins>
+
+desc: Remove using from Flyy eco-syetem using user ext-uid
+
+method: **"PUT"**
+
+url: *"/v1/{{partner-id}}/delete_user/{{ext-uid}}"*
+
+example : /v1/12345bef00abc/delete_user/1234
+
+
+case:
+
+success: **true**
+
+        o/p: {
+            "success": true,
+            "message": "User Deleted Successfully.",
+            "status": 200
+        }
+
+success: **false**
+
+        {
+            "success": false,
+            "message": "User Not Found.",
+            "status": 200
+        }
+
 
 
 ## name: <ins>Transfer Requests,</ins>
