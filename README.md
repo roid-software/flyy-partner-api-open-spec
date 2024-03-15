@@ -3,7 +3,11 @@ Api: Flyy Partner
 
 //
 
+
+name: <ins>**User Token API**</ins>
+
 name: <span style="text-decoration: underline;"><b>User Token API</b></span>
+
 
 desc: Use this request to get ext_user_token to be used for initializing the Web SDK
 
@@ -44,7 +48,7 @@ success: **false**
 
 //
 
-name: <u>**Get Segment List**</u>
+name: <ins>**Get Segment List**</ins>
 
 desc: This gets the list of segments in your account and returns in array of segments
 
@@ -79,7 +83,7 @@ success: **true**
 
 //
 
-name: <u>**Update Segment Title**</u>
+name: <ins>**Update Segment Title**</ins>
 
 desc: Validate User's Device Uniqueness
 
@@ -122,7 +126,7 @@ success: **false**
 
 //
 
-name: <u>**Add a user to a segment**</u>
+name: <ins>**Add a user to a segment**</ins>
 
 desc: This API adds the user with ext-user-id to the segment specified by segment_key. If the segment is not present then a new Segment is created.
 
@@ -168,7 +172,7 @@ success: **false**
 
 //
 
-name: **<u>Remove User from a Segment</u>**
+name: **<ins>Remove User from a Segment</ins>**
 
 desc: This API will Remove the User from a specified Segment
 
@@ -210,7 +214,7 @@ success: **false**
 
 //
 
-name: **<u>Get User Segments</u>**
+name: **<ins>Get User Segments</ins>**
 
 desc: This API will give you the list of segments that the user is mapped to
 
@@ -261,7 +265,7 @@ success: **false**
 
 //
 
-name: <u>**List all Quiz**</u>
+name: <ins>**List all Quiz**</ins>
 
 desc: List all Quiz from collection return's array of quizzes
 
@@ -309,7 +313,7 @@ success: **true**
 
 //
 
-name: <u>**Set User Properties**</u>
+name: <ins>**Set User Properties**</ins>
 
 desc: Set User Properties specified user
 
@@ -360,7 +364,7 @@ success: **false**
 
 //
 
-name: <u>**Get offers data**</u>
+name: <ins>**Get offers data**</ins>
 
 desc: Use this endpoint to retrieve the offers data for specific user
 
@@ -423,7 +427,7 @@ success: **false**
 
 //
 
-name: <u>**Sending Past Date User Event**</u>
+name: <ins>**Sending Past Date User Event**</ins>
 
 desc: Sending Past Date User Event
 
@@ -475,7 +479,7 @@ success: **false**
 
 //
 
-name: <u>**Get Referral History**</u>
+name: <ins>**Get Referral History**</ins>
 
 desc: Get Referral History
 
@@ -502,7 +506,7 @@ success: **true**
 
 //
 
-name: <u>**Verify Referrer Code**</u>
+name: <ins>**Verify Referrer Code**</ins>
 
 desc: Verify Referrer Code
 
@@ -541,7 +545,7 @@ success: **false**
 
 //
 
-name: <u>**Validate Referrer linked with a User**</u>
+name: <ins>**Validate Referrer linked with a User**</ins>
 
 desc: Validate Referrer linked with a User
 
@@ -584,7 +588,7 @@ success: **false**
 
 //
 
-name: <u>**Validate User's Device Uniqueness**</u>
+name: <ins>**Validate User's Device Uniqueness**</ins>
 
 desc: Validate User's Device Uniqueness
 
@@ -621,7 +625,7 @@ success: **false**
 
 //
 
-name: <u>**Update User's Referral Code**</u>
+name: <ins>**Update User's Referral Code**</ins>
 
 desc: Update User's Referral Code
 
@@ -658,7 +662,7 @@ success: **false**
 
 //
 
-name: <u>**Delete users with GAID**</u>
+name: <ins>**Delete users with GAID**</ins>
 
 desc: Delete users with GAID
 
@@ -698,7 +702,7 @@ success: **false**
 
 //
 
-name: <u>**Get Specific User's Referral History**</u>
+name: <ins>**Get Specific User's Referral History**</ins>
 
 desc: Get Specific User's Referral History
 
@@ -737,7 +741,7 @@ success: **false**
 
 //
 
-name: <u>**Get User IDs in a Segment**</u>
+name: <ins>**Get User IDs in a Segment**</ins>
 
 desc: Get User IDs in a Segment using Segment key
 
@@ -776,7 +780,7 @@ success: **false**
 
 //
 
-name: <u>**Quiz Tournaments**</u>
+name: <ins>**Quiz Tournaments**</ins>
 
 desc: Get Live Quiz Tournaments
 
@@ -834,7 +838,7 @@ success: **false**
 
 //
 
-name: <span style="text-decoration: underline;">**Transfer Requests,**</span>
+name: <ins>**Transfer Requests,**</ins>
 
 desc: Transfer Requests api for accept or reject redemption.
 
