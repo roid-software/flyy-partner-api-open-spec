@@ -542,7 +542,7 @@ success: **false**
 
 desc: Validate Referrer linked with a User
 
-method: **"GET"**
+method: **"PUT"**
 
 url: *"/v1/{partner-id}/user/{ext-user-id}/validate_referrer"*
 
