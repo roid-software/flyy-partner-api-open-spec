@@ -834,7 +834,7 @@ success: **false**
 
 //
 
-name: <u>**Transfer Requests,**</u>
+name: <span style="text-decoration: underline;">**Transfer Requests,**</span>
 
 desc: Transfer Requests api for accept or reject redemption.
 
