@@ -3,13 +3,13 @@ Api: Flyy Partner
 
 //
 
-name: User Token API
+name: <u>**User Token API**</u>
 
 desc: Use this request to get ext_user_token to be used for initializing the Web SDK
 
-method: "POST"
+method: **"POST"**
 
-url: "/v1/{partner-id}/user/{ext-user-id}/user_token"
+url: *"/v1/{partner-id}/user/{ext-user-id}/user_token"*
 
 example : /v1/12345bef00abc/user/123/user_token
 
@@ -17,7 +17,7 @@ example : /v1/12345bef00abc/user/123/user_token
 
 case:
 
-success: true
+success: **true**
 
             o/p: {
                 "success": true,
@@ -28,7 +28,7 @@ success: true
                 "device_id": "74e539df-48f3-489a-b8e3-07a253a163e1"
             }
 
-success: false
+success: **false**
 
               o/p: {
                                  "success": false,
@@ -44,19 +44,19 @@ success: false
 
 //
 
-name: Get Segment List
+name: <u>**Get Segment List**</u>
 
 desc: This gets the list of segments in your account and returns in array of segments
 
-method: "GET"
+method: **"GET"**
 
-url: "/v1/{partner-id}/get_segments"
+url: *"/v1/{partner-id}/get_segments"*
 
 example : /v1/12345bef00abc/get_segments
 
 case:
 
-success: true
+success: **true**
 
                 o/p: {
                     "success": true,
@@ -79,13 +79,13 @@ success: true
 
 //
 
-name: Update Segment Title
+name: <u>**Update Segment Title**</u>
 
 desc: Validate User's Device Uniqueness
 
-method: "PUT"
+method: **"PUT"**
 
-url: "/v1/{partner-id}/segments/{segment_id}"
+url: *"/v1/{partner-id}/segments/{segment_id}"*
 
 example : /v1/12345bef00abc/segments/100
 
@@ -95,7 +95,7 @@ example : /v1/12345bef00abc/segments/100
 
 case:
 
-success: true
+success: **true**
 
         o/p: {
             "success": true,
@@ -109,7 +109,7 @@ success: true
             }
         }
 
-success: false
+success: **false**
 
           o/p: {
               "success": false,
@@ -122,16 +122,16 @@ success: false
 
 //
 
-name: Add a user to a segment
+name: <u>**Add a user to a segment**</u>
 
 desc: This API adds the user with ext-user-id to the segment specified by segment_key. If the segment is not present then a new Segment is created.
 
-method: "POST"
+method: **"POST"**
 
-url: "/v1/{partner-id}/user/{ext-user-id}/add_segment"
+url: *"/v1/{partner-id}/user/{ext-user-id}/add_segment"*
 
 example : /v1/12345bef00abc/user/123/add_segment
-  
+
             body: {
                   "segment_title": "Test",
                   "segment_key": "title"
@@ -139,7 +139,7 @@ example : /v1/12345bef00abc/user/123/add_segment
 
 case:
 
-success: true
+success: **true**
 
             o/p: {
                 "success": true,
@@ -151,7 +151,7 @@ success: true
                 "created_at": 1708088202
             }
 
-success: false 
+success: **false**
 
           o/p: {
               "success": false,
@@ -165,16 +165,16 @@ success: false
               }
           }
 
-          
+
 //
 
-name: Remove User from a Segment
+name: **<u>Remove User from a Segment</u>**
 
 desc: This API will Remove the User from a specified Segment
 
-method: "POST"
+method: **"POST"**
 
-url: "/v1/{partner-id}/user/{ext-user-id}/remove_segment"
+url: *"/v1/{partner-id}/user/{ext-user-id}/remove_segment"*
 
 example : /v1/12345bef00abc/user/123/remove_segment
 
@@ -184,7 +184,7 @@ example : /v1/12345bef00abc/user/123/remove_segment
 
 case:
 
-success: true
+success: **true**
 
             o/p: {
                 "success": true,
@@ -193,7 +193,7 @@ success: true
                 "description": "User removed from the Segment"
             }
 
-success: false
+success: **false**
 
                 o/p: {
                     "success": false,
@@ -210,19 +210,19 @@ success: false
 
 //
 
-name: Get User Segments
+name: **<u>Get User Segments</u>**
 
 desc: This API will give you the list of segments that the user is mapped to
 
-method: "GET"
+method: **"GET"**
 
-url: "/v1/{partner-id}/user/{ext-user-id}/user_segments"
+url: *"/v1/{partner-id}/user/{ext-user-id}/user_segments"*
 
 example : /v1/12345bef00abc/user/123/user_segments
 
 case:
 
-success: true
+success: **true**
 
               o/p: {
                   "success": true,
@@ -240,12 +240,12 @@ success: true
                           "segment_title": "Test Two",
                           "key": "test_2"
                       },
-                      
+
                   ]
               }
 
 
-success: false
+success: **false**
 
             o/p: {
                 "success": false,
@@ -261,13 +261,13 @@ success: false
 
 //
 
-name: List all Quiz
+name: <u>**List all Quiz**</u>
 
 desc: List all Quiz from collection return's array of quizzes
 
-method: "GET"
+method: **"GET"**
 
-url: "/v1/{partner-id}/quizzes"
+url: *"/v1/{partner-id}/quizzes"*
 
 query string: /quizzes?per_page=10&page=1
 
@@ -275,7 +275,7 @@ example : /v1/12345bef00abc/quizzes
 
 case:
 
-success: true
+success: **true**
 
                  o/p: {
                         "success": true,
@@ -303,19 +303,19 @@ success: true
                                 "created_at": "2024-01-02T15:57:49.064+05:30",
                                 "updated_at": "2024-01-02T15:57:49.064+05:30"
                             },
-                           
+
                         ]
                 }
 
 //
 
-name: Set User Properties
+name: <u>**Set User Properties**</u>
 
 desc: Set User Properties specified user
 
-method: "POST"
+method: **"POST"**
 
-url: "/v1/{partner-id}/user/{ext-user-id}/properties"
+url: *"/v1/{partner-id}/user/{ext-user-id}/properties"*
 
 example : /v1/12345bef00abc/user/123/properties
 
@@ -328,7 +328,7 @@ example : /v1/12345bef00abc/user/123/properties
 
 case:
 
-success: true
+success: **true**
 
               o/p: {
                   "success": true,
@@ -343,7 +343,7 @@ success: true
                   "created_at": 1599112736
               }
 
-success: false
+success: **false**
 
                 o/p: {
                     "success": false,
@@ -360,19 +360,19 @@ success: false
 
 //
 
-name: Get offers data
+name: <u>**Get offers data**</u>
 
 desc: Use this endpoint to retrieve the offers data for specific user
 
-method: "GET"
+method: **"GET"**
 
-url:"/v1/{partner-id}/user/{ext-user-id}/offers"
+url: *"/v1/{partner-id}/user/{ext-user-id}/offers"*
 
 example : /v1/12345bef00abc/user/123/offers
 
 case:
 
-success: true
+success: **true**
 
              o/p: {
                 "success": true,
@@ -407,7 +407,7 @@ success: true
                 ]
             }
 
-success: false
+success: **false**
 
             o/p: {
                 "success": false,
@@ -423,23 +423,23 @@ success: false
 
 //
 
-name: Sending Past Date User Event
+name: <u>**Sending Past Date User Event**</u>
 
 desc: Sending Past Date User Event
 
-method: "POST"
+method: **"POST"**
 
-url:"/v1/{partner-id}/user_previous_event"
+url: *"/v1/{partner-id}/user_previous_event"*
 
 example : /v1/12345bef00abc/user_previous_event
 
-         body: { 
+         body: {
             "ext_user_id": "123", "event_key": "330", "event_data": {}, "firebase_token": "", "datetime": "12-05-2021 12:34:00"
          }
 
 case:
 
-success: true
+success: **true**
 
               o/p: {
                   "success": true,
@@ -457,7 +457,7 @@ success: true
                   }
               }
 
-success: false
+success: **false**
 
             o/p: {
                 "success": false,
@@ -470,24 +470,24 @@ success: false
                     ]
                 }
             }
- 
+
 
 
 //
 
-name: Get Referral History
+name: <u>**Get Referral History**</u>
 
 desc: Get Referral History
 
-method: "GET"
+method: **"GET"**
 
-url: "/v1/{partner-id}/referral_history"
+url: *"/v1/{partner-id}/referral_history"*
 
 example : /v1/12345bef00abc/referral_history
 
 case:
 
-success: true
+success: **true**
 
               o/p:{
                 "success": true,
@@ -502,19 +502,19 @@ success: true
 
 //
 
-name: Verify Referrer Code
+name: <u>**Verify Referrer Code**</u>
 
 desc: Verify Referrer Code
 
-method: "GET"
+method: **"GET"**
 
-url: "/v1/{partner-id}/verify_referrer_code/{code}"
+url: *"/v1/{partner-id}/verify_referrer_code/{code}"*
 
 example : /v1/12345bef00abc/verify_referrer_code/ABC
 
 case:
 
-success: true
+success: **true**
 
              o/p: {
                 "success": true,
@@ -524,7 +524,7 @@ success: true
                 "refer_code": "ABC"
             }
 
-success: false
+success: **false**
 
             o/p: {
                 "success": false,
@@ -541,19 +541,19 @@ success: false
 
 //
 
-name: Validate Referrer linked with a User
+name: <u>**Validate Referrer linked with a User**</u>
 
 desc: Validate Referrer linked with a User
 
-method: "GET"
+method: **"GET"**
 
-url: "/v1/{partner-id}/user/{ext-user-id}/validate_referrer"
+url: *"/v1/{partner-id}/user/{ext-user-id}/validate_referrer"*
 
 example : /v1/12345bef00abc/user/123/validate_referrer
 
 case:
 
-success: true
+success: **true**
 
             o/p: {
                 "success": true,
@@ -562,7 +562,7 @@ success: true
             }
 
 
-success: false
+success: **false**
 
             o/p: {
               "success": false,
@@ -584,19 +584,19 @@ success: false
 
 //
 
-name: Validate User's Device Uniqueness
+name: <u>**Validate User's Device Uniqueness**</u>
 
 desc: Validate User's Device Uniqueness
 
-method: "GET"
+method: **"GET"**
 
-url: "/v1/{partner-id}/user/{ext-user-id}/validate_device"
+url: *"/v1/{partner-id}/user/{ext-user-id}/validate_device"*
 
 example : /v1/12345bef00abc/user/123/validate_device
 
 case:
 
-success: true
+success: **true**
 
              o/p: {
                 "success": true,
@@ -605,7 +605,7 @@ success: true
             }
 
 
-success: false
+success: **false**
 
             o/p: {
                             "success": false,
@@ -621,19 +621,19 @@ success: false
 
 //
 
-name: Update User's Referral Code
+name: <u>**Update User's Referral Code**</u>
 
 desc: Update User's Referral Code
 
-method: "PUT"
+method: **"PUT"**
 
-url: "/v1/{{partner-id}}/user/{{ext-user-id}}/update_referral_code/ABCD"
+url: *"/v1/{{partner-id}}/user/{{ext-user-id}}/update_referral_code/ABCD"*
 
 example : /v1/12345bef00abc/user/123/update_referral_code/ABCD
 
 case:
 
-success: true
+success: **true**
 
             o/p: {
                 "success": true,
@@ -641,7 +641,7 @@ success: true
                 "message": "Referral Code Updated"
             }
 
-success: false
+success: **false**
 
         o/p: {
             "success": false,
@@ -658,25 +658,25 @@ success: false
 
 //
 
-name: Delete users with GAID
+name: <u>**Delete users with GAID**</u>
 
 desc: Delete users with GAID
 
-method: "POST"
+method: **"POST"**
 
-url: "/v1/{{partner-id}}/users/reset_users"
+url: *"/v1/{{partner-id}}/users/reset_users"*
 
 example : /v1/12345bef00abc/users/reset_users
 
 
         body:  {
-            "gaid": "00000000-0000-0000-0000-000000000000"    
+            "gaid": "00000000-0000-0000-0000-000000000000"
         }
 
 
 case:
 
-success: true
+success: **true**
 
             o/p: {
                 "success": true,
@@ -685,7 +685,7 @@ success: true
                 "message": "Users deleted successfully"
             }
 
-success: false
+success: **false**
 
             o/p: {
                 "success": false,
@@ -698,19 +698,19 @@ success: false
 
 //
 
-name: Get Specific User's Referral History
+name: <u>**Get Specific User's Referral History**</u>
 
 desc: Get Specific User's Referral History
 
-method: "GET"
+method: **"GET"**
 
-url: "/v1/{{partner-id}}/user/{{ext-user-id}}/referral_history?page=1"
+url: *"/v1/{{partner-id}}/user/{{ext-user-id}}/referral_history?page=1"*
 
 example : /v1/12345bef00abc/user/{{ext-user-id}}/referral_history
 
 case:
 
-success: true
+success: **true**
 
             o/p: {
                 "success": true,
@@ -722,7 +722,7 @@ success: true
                 "referrals": []
             }
 
-success: false
+success: **false**
 
              o/p: {
                 "success": false,
@@ -737,19 +737,19 @@ success: false
 
 //
 
-name: Get User IDs in a Segment
+name: <u>**Get User IDs in a Segment**</u>
 
 desc: Get User IDs in a Segment using Segment key
 
-method: "GET"
+method: **"GET"**
 
-url: "/v1/{partner-id}/segments/{segment-key}"
+url: *"/v1/{partner-id}/segments/{segment-key}"*
 
 example : /v1/12345bef00abc/segments/test_segment
 
 case:
 
-success: true
+success: **true**
 
             o/p:  "example": {
                   "success": true,
@@ -759,7 +759,7 @@ success: true
                   "segment_users": ["MNOP", "IJKL", "EFGH"]
                 }
 
-success: false
+success: **false**
 
             o/p: {
                 "success": false,
@@ -776,19 +776,19 @@ success: false
 
 //
 
-name: Quiz Tournaments
+name: <u>**Quiz Tournaments**</u>
 
 desc: Get Live Quiz Tournaments
 
-method: "GET"
+method: **"GET"**
 
-url: "/v1/{{partner-id}}/quiz_tournaments"
+url: *"/v1/{{partner-id}}/quiz_tournaments"*
 
 example : /v1/12345bef00abc/quiz_tournaments
 
 case:
 
-success: true
+success: **true**
 
             o/p: "example": {
                   "success": true,
@@ -823,8 +823,8 @@ success: true
                     }
                   ]
                 },
-                
-success: false
+
+success: **false**
 
             {
     "success": false,
@@ -834,17 +834,17 @@ success: false
 
 //
 
-name: Transfer Requests,
+name: <u>**Transfer Requests,**</u>
 
 desc: Transfer Requests api for accept or reject redemption.
 
-method: "PUT",
+method: **"PUT",**
 
-url: "/v1/{partner-id}/transfer_requests/{transfer_request_id}/{status}",
+url: *"/v1/{partner-id}/transfer_requests/{transfer_request_id}/{status}",*
 
 case :
 
-success: true
+success: **true**
 
 example : /v1/12345bef00abc/transfer_requests/100/accept
 
@@ -852,15 +852,15 @@ example : /v1/12345bef00abc/transfer_requests/100/accept
                 "success": true,
                 "message": "Transfer Request with id 100 is under process. with status accept"
             },
-            
+
 example : /v1/12345bef00abc/transfer_requests/100/reject
 
             o/p: {
                 "success": true,
                 "message": "Transfer Request with id 100 is under process. with status reject"
             },
-            
-success: false
+
+success: **false**
 
             1: status is "rejected"
                 o/p: {
