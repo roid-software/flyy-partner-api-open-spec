@@ -3,7 +3,7 @@ Api: Flyy Partner
 
 //
 
-name: <u>**User Token API**</u>
+name: <u>User Token API</u>
 
 desc: Use this request to get ext_user_token to be used for initializing the Web SDK
 
