@@ -1,5 +1,176 @@
 # <ins>Api: Flyy Partner</ins>
 
+## name: <ins>Get Wallet Types</ins>
+
+desc: Get the list of available wallet types
+
+method: **"GET"**
+
+url: *"/v1/{{partner-id}}/wallet_types"*
+
+example : /v1/12345bef00abc/wallet_types
+
+case:
+
+success: **true**
+
+            o/p: {
+                "success": true,
+                "response_code": 200,
+                "entity": "collection",
+                "count": 15,
+                "items": [
+                    {
+                        "id": 21,
+                        "is_active": false,
+                        "entity": "wallet_type",
+                        "name": "Cash"
+                    },
+                    {
+                        "id": 22,
+                        "is_active": true,
+                        "entity": "wallet_type",
+                        "name": "Coins"
+                    },
+                  ]
+                },
+
+
+
+## name: <ins>Get credit statement for the specified wallet type</ins>
+
+desc: Get credit statement for the specified wallet type
+
+method: **"GET"**
+
+url: *"/v1/{{partner-id}}/user/{{ext-user-id}}/wallet/{{wallet-type-id}}/credits*
+
+example : /v1/12345bef00abc/user/777/wallet/8055/credits?page=1&per_page=10
+
+    query-params :
+                    key: page        value: 1
+                    key: per_page    value: 10
+
+case:
+
+success: **true**
+
+    o/p: {
+        "success": true,
+        "response_code": 200,
+        "entity": "collection",
+        "total_sum": 0,
+        "count": 0,
+        "items": []
+    }
+
+success: **false**
+
+    {
+        "success": false,
+        "response_code": 422,
+        "error": {
+            "code": "INVALID_DATA",
+            "description": "Invalid Wallet Type.",
+            "invalid_fields": [
+                "wallet_type_id"
+            ]
+        }
+    }
+
+
+
+## name: <ins>Get debit statement for the specified wallet type</ins>
+
+desc: Get debit statement for the specified wallet type
+
+method: **"GET"**
+
+url: *"/v1/{{partner-id}}/user/{{ext-user-id}}/wallet/{{wallet-type-id}}/debits*
+
+example : /v1/12345bef00abc/user/777/wallet/8055/debits?page=1&per_page=10
+
+    query-params :
+                    key: page        value: 1
+                    key: per_page    value: 10
+
+case:
+
+success: **true**
+
+    o/p: {
+        "success": true,
+        "response_code": 200,
+        "entity": "collection",
+        "total_sum": 0,
+        "count": 0,
+        "items": []
+    }
+
+success: **false**
+
+    {
+        "success": false,
+        "response_code": 422,
+        "error": {
+            "code": "INVALID_DATA",
+            "description": "Invalid Wallet Type.",
+            "invalid_fields": [
+                "wallet_type_id"
+            ]
+        }
+    }
+
+
+
+
+
+## name: <ins>Get wallet balance of a user in the specified wallet type</ins>
+
+desc: Get wallet balance of a user in the specified wallet type
+
+method: **"GET"**
+
+url: *"v1/{{partner-id}}/user/{{ext-user-id}}/wallet/{{wallet-type-id}}*
+
+example : /v1/12345bef00abc/user/777/wallet/8055/100
+
+    query-params :
+                    key: page        value: 1
+                    key: per_page    value: 10
+
+case:
+
+success: **true**
+
+    o/p: {
+        "success": true,
+        "response_code": 200,
+        "entity": "wallet",
+        "wallet_type_id": 21,
+        "balance": 0,
+        "ext_user_id": "7828011085",
+        "last_balance_updated": 1695340816,
+        "last_credit": 1680523040,
+        "last_debit": 1695340816
+    }
+
+success: **false**
+
+    {
+        "success": false,
+        "response_code": 422,
+        "error": {
+            "code": "INVALID_DATA",
+            "description": "Invalid Wallet Type.",
+            "invalid_fields": [
+                "wallet_type_id"
+            ]
+        }
+    }
+
+
+
 ## name: <ins>User Token API</ins>
 
 desc: Use this request to get ext_user_token to be used for initializing the Web SDK
@@ -948,11 +1119,12 @@ method: **"PUT",**
 
 url: *"/v1/{partner-id}/transfer_requests/{transfer_request_id}/{status}",*
 
+example : /v1/12345bef00abc/transfer_requests/100/accept
+
 case :
 
 success: **true**
 
-example : /v1/12345bef00abc/transfer_requests/100/accept
 
             o/p: {
                 "success": true,
