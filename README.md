@@ -237,6 +237,7 @@ success: **false**
             }
 
 
+
 ## name: <ins>Create a Referral Campaign Variant</ins>
 
 desc: Create a Referral Campaign Variant 
@@ -428,7 +429,7 @@ method: **"GET"**
 
 url: *"v1/{{partner-id}}/user/{{ext-user-id}}/referral_link
 
-example : /v1/12345bef00abc/123/referral_link
+example : /v1/12345bef00abc/user/123/referral_link
 
 case:
 
@@ -455,6 +456,284 @@ success: **false**
                 }
             }
             
+
+
+## name: <ins>Get User Data</ins>
+
+desc: Get User Data
+
+method: **"GET"**
+
+url: *"v1/{{partner-id}}/user/{{ext-user-id}}
+
+example : /v1/12345bef00abc/user/123
+
+case:
+
+success: **true**
+
+            o/p: {
+                "success": true,
+                "response_code": 200,
+                "entity": "user",
+                "ext_user_id": "{{ext-user-id}}",
+                "user_name": "",
+                "display_name": null,
+                "created_at": 1708089320,
+                "properties": null
+            }
+
+success: **false**
+
+            {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "INVALID_DATA",
+                    "description": "Invalid Ext User Id.",
+                    "invalid_fields": [
+                        "ext_user_id"
+                    ]
+                }
+            }
+            
+
+
+## name: <ins>Credit value to user's wallet</ins>
+
+desc: Credit value to user's wallet
+
+method: **"POST"**
+
+url: *"v1/{{partner-id}}/user_wallet/credit
+
+example : /v1/12345bef00abc/user_wallet/credit
+
+    body :
+             { "request_id": "K5Z1S", 
+             "ext_user_id": "7828011085", 
+             "wallet_type_id": 25, 
+             "credit_value": 10, 
+             "credit_reason": "Won for an offer", 
+             "firebase_token": ""}
+
+case:
+
+success: **true**
+
+            o/p: {
+                "id": 7798,
+                "entity": "wallet_credit",
+                "value": 20,
+                "ref_num": "SduGj",
+                "credit_reason": "Won for an offer",
+                "wallet_type_id": 25,
+                "created_at": 1602864876
+            }
+
+success: **false**
+
+            {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "INVALID_DATA",
+                    "description": "Invalid Request Id.",
+                    "invalid_fields": [
+                        "request_id"
+                    ]
+                }
+            }
+
+            
+## name: <ins>Initiate Credit request for a user's wallet</ins>
+
+desc: Initiate Credit request for a user's wallet
+
+method: **"POST"**
+
+url: *"v1/{{partner-id}}/user_wallet/credit/initiate
+
+example : /v1/12345bef00abc/user_wallet/credit/initiate
+
+    body :
+             {
+             "ext_user_id": "7828011085",
+             "wallet_type_id": 25, 
+             "credit_value": 20 }
+
+case:
+
+success: **true**
+
+            o/p: {
+                "success": true,
+                "response_code": 200,
+                "id": 11643741,
+                "entity": "wallet_credit_request",
+                "value": 20,
+                "request_id": "av5yQ",
+                "status": "initiated",
+                "created_at": 1710745777
+            }
+
+success: **false**
+
+            {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "INVALID_DATA",
+                    "description": "Invalid Wallet Type Id",
+                    "invalid_fields": [
+                        "wallet_type_id"
+                    ]
+                }
+            }
+
+            
+## name: <ins>Initiate Debit request for a user's wallet</ins>
+
+desc: Initiate Debit request for a user's wallet 
+
+method: **"POST"**
+
+url: *"v1/{{partner-id}}/user_wallet/debit/initiate
+
+example : /v1/12345bef00abc/user_wallet/debit/initiate
+
+    body :
+             { "ext_user_id": "123", 
+             "wallet_type_id": 25, 
+             "debit_value": 2 }
+
+case:
+
+success: **true**
+
+            o/p: {
+                "success": true,
+                "response_code": 200,
+                "id": 11643745,
+                "entity": "wallet_debit_request",
+                "value": 2,
+                "request_id": "yE2QJ",
+                "status": "initiated",
+                "created_at": 1710745951
+            }
+
+success: **false**
+
+            {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "INVALID_DATA",
+                    "description": "Invalid Ext User Id",
+                    "invalid_fields": [
+                        "ext_user_id"
+                    ]
+                }
+            }
+
+            
+## name: <ins>Debit value from user's wallet</ins>
+
+desc: Debit value from user's wallet 
+
+method: **"POST"**
+
+url: *"v1/{{partner-id}}/user_wallet/debit
+
+example : /v1/12345bef00abc/user_wallet/debit
+
+    body :
+             { "request_id": "jajeI", 
+             "ext_user_id": "7828011085", 
+             "wallet_type_id": 25, 
+             "debit_value": 3, 
+             "debit_reason": "Redeemed to PayTM", 
+             "firebase_token": "This is optional"}
+
+case:
+
+success: **true**
+
+            o/p: {
+                "id": 129,
+                "entity": "wallet_debit",
+                "value": 2,
+                "ref_num": "tszFK",
+                "debit_reason": "Redeemed to PayTM",
+                "wallet_type_id": 25,
+                "created_at": 1602936482
+            }
+            
+
+success: **false**
+
+            {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "INVALID_DATA",
+                    "description": "Invalid Wallet Type.",
+                    "invalid_fields": [
+                        "wallet_type_id"
+                    ]
+                }
+}
+
+            
+## name: <ins>Sending User Event</ins>
+
+desc: Sending User Event 
+
+method: **"POST"**
+
+url: *"v1/{{partner-id}}/user_event
+
+example : /v1/12345bef00abc/user_event
+
+    body :
+             { "ext_user_id": "7828011085", "event_key": "mutli_reward_event", "event_data": { "amount" : 20 }}
+
+case:
+
+success: **true**
+
+             o/p: {
+                "success": true,
+                "response_code": 200,
+                "id": 1983451844,
+                "entity": "user_event",
+                "ext_user_id": "7828011085",
+                "event_key": "mutli_reward_event",
+                "event_data": {
+                    "amount": 20
+                },
+                "created_at": 1710746232,
+                "additional_data": {
+                    "reward_generated": false,
+                    "reward": null,
+                    "campaign": null
+                }
+            }
+
+success: **false**
+
+            {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "INVALID_DATA",
+                    "description": "Invalid Ext User Id",
+                    "invalid_fields": [
+                        "ext_user_id"
+                    ]
+                }
+            }
+
 
 
 ## name: <ins>User Token API</ins>
