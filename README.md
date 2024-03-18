@@ -369,6 +369,94 @@ success: **false**
             }
 
 
+
+## name: <ins>Get the Referral Campaign Variant</ins>
+
+desc: Get the Referral Campaign Variant
+
+method: **"GET"**
+
+url: *"v1/{{partner-id}}/variants/{{event_variant.id}}
+
+example : /v1/12345bef00abc/variants/1234
+
+case:
+
+success: **true**
+
+            o/p: {
+                "success": true,
+                "response_code": 200,
+                "entity": "variant",
+                "id": 288,
+                "offer_id": 9304,
+                "event_id": 4036,
+                "min_referrer_reward": 111,
+                "max_referrer_reward": 226,
+                "avg_referrer_reward": 169,
+                "min_referee_reward": null,
+                "max_referee_reward": null,
+                "avg_referee_reward": null,
+                "tenant_id": 11,
+                "created_at": "2023-05-24T13:46:49.614+05:30",
+                "updated_at": "2023-05-24T13:46:49.614+05:30",
+                "name": "pppppppp",
+                "conditions": []
+            }
+
+success: **false**
+
+            {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "INVALID_DATA",
+                    "description": "Invalid Variant ID",
+                    "invalid_fields": [
+                        "id"
+                    ]
+                }
+            }
+
+
+
+## name: <ins>Get User Referral Link</ins>
+
+desc: Get User Referral Link 
+
+method: **"GET"**
+
+url: *"v1/{{partner-id}}/user/{{ext-user-id}}/referral_link
+
+example : /v1/12345bef00abc/123/referral_link
+
+case:
+
+success: **true**
+
+            o/p: {
+                "success": true,
+                "response_code": 200,
+                "entity": "referral_link",
+                "referral_link": " https://flyy.in/GOBUNP2"
+            }
+
+success: **false**
+
+            {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "INVALID_DATA",
+                    "description": "Invalid Ext User Id.",
+                    "invalid_fields": [
+                        "ext_user_id"
+                    ]
+                }
+            }
+            
+
+
 ## name: <ins>User Token API</ins>
 
 desc: Use this request to get ext_user_token to be used for initializing the Web SDK
