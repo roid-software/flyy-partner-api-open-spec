@@ -171,6 +171,39 @@ success: **false**
 
 
 
+## name: <ins>Create a Stage User</ins>
+
+desc: Create a new Stage User 
+
+method: **"POST"**
+
+url: *"v1/{{partner-id}}/stage-user
+
+example : /v1/12345bef00abc/stage-user
+
+    body :
+             {"ext_user_id" : "{{ext-user-id}}"}
+
+case:
+
+success: **true**
+
+            o/p: {
+                "success": true,
+                "response_code": 200,
+                "entity": "user",
+                "ext_user_id": "1133",
+                "created_at": 1710743467
+            }
+
+success: **false**
+
+            {
+                "success": false,
+                "message": "Ext uid has already been taken"
+            }
+
+
 ## name: <ins>User Token API</ins>
 
 desc: Use this request to get ext_user_token to be used for initializing the Web SDK
