@@ -323,6 +323,52 @@ success: **false**
 
 
 
+## name: <ins>Update the Referral Campaign Variant conditions</ins>
+
+desc: Update the Referral Campaign Variant conditions
+
+method: **"PUT"**
+
+url: *"v1//{{partner-id}}/variants/{{variant-id}}
+
+example : /v1/12345bef00abc/variants/123
+
+    body :
+            {
+                "min_referrer_reward": 1, 
+                "max_referrer_reward": 10,
+                "avg_referrer_reward": 6,
+                "min_referee_reward": null,
+                "max_referee_reward": null,
+                "avg_referee_reward": null,
+                "conditions": "[[{\"type\":\"compare\",\"value\":{\"key\":\"campaign_id\",\"value\":\"campaign_3\",\"operator\":\"=\"}}],[{\"type\":\"compare\",\"value\":{\"key\":\"campaign_id\",\"value\":\"campaign_2\",\"operator\":\"=\"}}]]"
+            }
+
+case:
+
+success: **true**
+
+            o/p: 
+            {success: true, 
+                        response_code: 200, 
+                        entity: "variant"
+            }
+
+success: **false**
+
+            {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "INVALID_DATA",
+                    "description": "Invalid Variant",
+                    "invalid_fields": [
+                        "id"
+                    ]
+                }
+            }
+
+
 ## name: <ins>User Token API</ins>
 
 desc: Use this request to get ext_user_token to be used for initializing the Web SDK
