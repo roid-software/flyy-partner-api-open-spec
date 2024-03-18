@@ -237,6 +237,91 @@ success: **false**
             }
 
 
+## name: <ins>Create a Referral Campaign Variant</ins>
+
+desc: Create a Referral Campaign Variant 
+
+method: **"POST"**
+
+url: *"v1/{{partner-id}}/user
+
+example : /v1/12345bef00abc/user
+
+    body :
+            {
+                "offer_id": 516, 
+                "event_id": 279, 
+                "min_referrer_reward": 1, 
+                "max_referrer_reward": 10,
+                "avg_referrer_reward": 6,
+                "min_referee_reward": null,
+                "max_referee_reward": null,
+                "avg_referee_reward": null,
+                "conditions": "[[{\"type\":\"compare\",\"value\":{\"key\":\"campaign_id\",\"value\":\"campaign_4\",\"operator\":\"=\"}}],[{\"type\":\"compare\",\"value\":{\"key\":\"campaign_id\",\"value\":\"campaign_2\",\"operator\":\"=\"}}]]"
+            }
+
+case:
+
+success: **true**
+
+            o/p: {
+                "success": true,
+                "response_code": 200,
+                "entity": "variant",
+                "id": 6159,
+                "offer_id": 12304,
+                "event_id": 23,
+                "min_referrer_reward": 1,
+                "max_referrer_reward": 10,
+                "avg_referrer_reward": 6,
+                "min_referee_reward": null,
+                "max_referee_reward": null,
+                "avg_referee_reward": null,
+                "tenant_id": 11,
+                "created_at": "2024-03-18T12:10:58.526+05:30",
+                "updated_at": "2024-03-18T12:10:58.526+05:30",
+                "status": "approved",
+                "name": null,
+                "conditions": [
+                    [
+                        {
+                            "type": "compare",
+                            "value": {
+                                "key": "campaign_id",
+                                "value": "campaign_4",
+                                "operator": "="
+                            }
+                        }
+                    ],
+                    [
+                        {
+                            "type": "compare",
+                            "value": {
+                                "key": "campaign_id",
+                                "value": "campaign_2",
+                                "operator": "="
+                            }
+                        }
+                    ]
+                ]
+            }
+
+success: **false**
+
+            {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "INVALID_DATA",
+                    "description": "Invalid Offer Id,Invalid Event Id",
+                    "invalid_fields": [
+                        "offer_id",
+                        "event_id"
+                    ]
+                }
+            }
+
+
 
 ## name: <ins>User Token API</ins>
 
