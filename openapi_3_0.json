@@ -2343,10 +2343,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "example": {
-                  "success": true,
-                  "message": "Transfer Request with id 100 is under process. with status accept"
-              }
+                "example": {}
               }
             }
           }
