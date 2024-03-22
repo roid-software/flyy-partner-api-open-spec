@@ -1074,8 +1074,8 @@
     "/v2/{partner-id}/user_event": {
       "post": {
         "tags": ["default"],
-        "summary": "Sending User Event",
-        "description": "Use this endpoint to post an event for a particular user in your FLYY account",
+        "summary": "Sending User Event (Deprecated)",
+        "description": "(Deprecated) this endpoint to post an event for a particular user in your FLYY account",
         "requestBody": {
           "content": {
             "application/json": {
@@ -2332,160 +2332,64 @@
           }
         }
       }
-    }
-  },"/v1/{partner-id}/transfer_requests/{transfer_request_id}/{status}": {
-    "get": {
-      "tags": ["default"],
-      "summary": "Get User IDs in a Segment",
-      "security": [
-        {
-          "apikeyAuth": []
-        }
-      ],
-      "parameters": [
-        {
-          "name": "partner-id",
-          "in": "path",
-          "schema": {
-            "type": "string"
-          },
-          "required": true
-        },
-        {
-          "name": "segment-key",
-          "in": "path",
-          "schema": {
-            "type": "string"
-          },
-          "required": true
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "OK",
-          "headers": {
-            "Server": {
-              "schema": {
-                "type": "string",
-                "example": "nginx"
-              }
-            },
-            "Date": {
-              "schema": {
-                "type": "string",
-                "example": "Thu, 16 Feb 2024 12:31:35 GMT"
-              }
-            },
-            "Content-Type": {
-              "schema": {
-                "type": "string",
-                "example": "application/json; charset=utf-8"
-              }
-            },
-            "Transfer-Encoding": {
-              "schema": {
-                "type": "string",
-                "example": "chunked"
-              }
-            },
-            "Connection": {
-              "schema": {
-                "type": "string",
-                "example": "keep-alive"
-              }
-            },
-            "X-Frame-Options": {
-              "schema": {
-                "type": "string",
-                "example": "SAMEORIGIN"
-              }
-            },
-            "X-XSS-Protection": {
-              "schema": {
-                "type": "string",
-                "example": "1; mode=block"
-              }
-            },
-            "X-Content-Type-Options": {
-              "schema": {
-                "type": "string",
-                "example": "nosniff"
-              }
-            },
-            "X-Download-Options": {
-              "schema": {
-                "type": "string",
-                "example": "noopen"
-              }
-            },
-            "X-Permitted-Cross-Domain-Policies": {
-              "schema": {
-                "type": "string",
-                "example": "none"
-              }
-            },
-            "Referrer-Policy": {
-              "schema": {
-                "type": "string",
-                "example": "strict-origin"
-              }
-            },
-            "ETag": {
-              "schema": {
-                "type": "string",
-                "example": "W/\"ca33ed56c10fc4432311acd235914c14\""
-              }
-            },
-            "Cache-Control": {
-              "schema": {
-                "type": "string",
-                "example": "max-age=0, private, must-revalidate"
-              }
-            },
-            "X-Request-Id": {
-              "schema": {
-                "type": "string",
-                "example": "ca4c2540-18ae-437f-9f3e-1e9eb5e8c9e4"
-              }
-            },
-            "X-Runtime": {
-              "schema": {
-                "type": "number",
-                "example": "0.018935"
-              }
-            },
-            "Vary": {
-              "schema": {
-                "type": "string",
-                "example": "Origin"
-              }
-            },
-            "Strict-Transport-Security": {
-              "schema": {
-                "type": "string",
-                "example": "max-age=31536000; includeSubDomains; preload"
-              }
-            }
-          },
+    },
+    "/v1/{partner-id}/transfer_requests/{transfer_request_id}/{status}": {
+      "put": {
+        "tags": ["default"],
+        "summary": "Update the user Transfer Request ",
+        "description": "Use this to Update Transfer Request status accept.",
+        "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
-              },
-              "example": {
-                "success": true,
-                "response_code": 200,
-                "message": "Transfer Request with id 100 is under process. with status accept"
+                "type": "object",
+                "example": {
+                  "success": true,
+                  "message": "Transfer Request with id 100 is under process. with status accept"
+              }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "variant-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {}
               }
             }
           }
         }
       }
-    }
-  },
+    },
+
+
   "x-readme": {
     "explorer-enabled": true,
     "proxy-enabled": true,
     "samples-enabled": true
   }
+}
 }
