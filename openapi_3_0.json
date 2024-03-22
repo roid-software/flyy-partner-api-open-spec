@@ -2367,6 +2367,14 @@
               "type": "string"
             },
             "required": true
+          },
+          {
+            "name": "status",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
           }
         ],
         "responses": {
