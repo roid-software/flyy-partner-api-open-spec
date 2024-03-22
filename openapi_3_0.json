@@ -2333,6 +2333,269 @@
         }
       }
     },
+
+    "/v1/{partner-id}/get_unscratched_scratchcards": {
+      "get": {
+        "tags": ["default"],
+        "summary": "Get Unscratched Scratchcards for last 30 days or using from_date to to_date",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "nginx"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Thu, 16 Dec 2021 12:31:35 GMT"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Transfer-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "chunked"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "X-Frame-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "SAMEORIGIN"
+                }
+              },
+              "X-XSS-Protection": {
+                "schema": {
+                  "type": "string",
+                  "example": "1; mode=block"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "nosniff"
+                }
+              },
+              "X-Download-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "noopen"
+                }
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "schema": {
+                  "type": "string",
+                  "example": "none"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "type": "string",
+                  "example": "strict-origin"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"ca33ed56c10fc4432311acd235914c14\""
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=0, private, must-revalidate"
+                }
+              },
+              "X-Request-Id": {
+                "schema": {
+                  "type": "string",
+                  "example": "ca4c2540-18ae-437f-9f3e-1e9eb5e8c9e4"
+                }
+              },
+              "X-Runtime": {
+                "schema": {
+                  "type": "number",
+                  "example": "0.018935"
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "Strict-Transport-Security": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=31536000; includeSubDomains; preload"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "success": true,
+                  "unscratched_scratchcards": [
+                      {
+                          "id": 49219744,
+                          "offer_id": 12243,
+                          "ref_num": "qwLJb",
+                          "ext_uid": "124",
+                          "value": 0,
+                          "message": "Earned for dd",
+                          "created_at": "2024-02-19T12:29:30.724+05:30"
+                      },
+                      {
+                          "id": 49219745,
+                          "offer_id": 12243,
+                          "ref_num": "1Pgox",
+                          "ext_uid": "1234_redected",
+                          "value": 0,
+                          "message": "Earned for dd",
+                          "created_at": "2024-02-19T12:29:45.358+05:30"
+                      }
+                    ]
+                  }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/v1/{partner-id}/expiry_partner_scratchcards": {
+      "post": {
+        "tags": ["default"],
+        "summary": "Expiry User Scratchcards",
+        "description": "Use this endpoint to expire scartch card using ref_num of scratch card",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "is_expired": true,
+                  "expiration_message": "Uh oh!, You haven't redeemed your reward.",
+                  "ref_nums": ["AAA"]
+              }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "success": true,
+                  "message": "Expiry Triggered"
+              }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/v1/{partner-id}/delete_user/{ext_user_id}": {
+      "put": {
+        "tags": ["default"],
+        "summary": "Delete User",
+        "description": "Use this to Delete User from Flyy system.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {}
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "partner-id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "ext_user_id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "success": true,
+                  "message": "User Deleted Successfully.",
+                  "status": 200
+              }
+              }
+            }
+          }
+        }
+      }
+    },
+
     "/v1/{partner-id}/transfer_requests/{transfer_request_id}/{status}": {
       "put": {
         "tags": ["default"],
