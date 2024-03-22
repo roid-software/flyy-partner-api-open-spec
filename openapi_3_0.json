@@ -2361,7 +2361,7 @@
             "required": true
           },
           {
-            "name": "variant-id",
+            "name": "transfer_request_id",
             "in": "path",
             "schema": {
               "type": "string"
