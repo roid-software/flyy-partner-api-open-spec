@@ -2364,6 +2364,14 @@
               "type": "string"
             },
             "required": true
+          },
+          {
+            "name": "status",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
           }
         ],
         "responses": {
@@ -2374,7 +2382,10 @@
                 "schema": {
                   "type": "object"
                 },
-                "example": {}
+                "example": {
+                  "success": true,
+                  "message": "Transfer Request with id 100 is under process. with status accept"
+              }
               }
             }
           }
