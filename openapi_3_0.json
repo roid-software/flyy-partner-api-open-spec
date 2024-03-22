@@ -2163,7 +2163,7 @@
         }
       }
     },
-    "/v1/{partner-id}/quiz_tournaments": {
+    "/v1/{partner}/quiz_tournaments": {
       "get": {
         "tags": ["default"],
         "summary": "Get Live Quiz Tournaments",
@@ -2174,7 +2174,7 @@
         ],
         "parameters": [
           {
-            "name": "partner-id",
+            "name": "partner",
             "in": "path",
             "schema": {
               "type": "string"
