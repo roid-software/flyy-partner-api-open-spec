@@ -2333,7 +2333,7 @@
         }
       }
     },
-    "/v1/{partner-id}/transfer_requests/{transfer_request_id}/status": {
+    "/v1/{partner-id}/transfer_requests/{transfer_request_id}/{status}": {
       "put": {
         "tags": ["default"],
         "summary": "Update the user Transfer Request ",
