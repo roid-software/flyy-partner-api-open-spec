@@ -685,7 +685,7 @@ success: **false**
 }
 
             
-## name: <ins>Sending User Event</ins>
+## name: <ins>Sending User Event (Deprecated)</ins>
 
 desc: Sending User Event 
 
@@ -694,6 +694,57 @@ method: **"POST"**
 url: *"v1/{{partner-id}}/user_event
 
 example : /v1/12345bef00abc/user_event
+
+    body :
+             { "ext_user_id": "7828011085", "event_key": "mutli_reward_event", "event_data": { "amount" : 20 }}
+
+case:
+
+success: **true**
+
+             o/p: {
+                "success": true,
+                "response_code": 200,
+                "id": 1983451844,
+                "entity": "user_event",
+                "ext_user_id": "7828011085",
+                "event_key": "mutli_reward_event",
+                "event_data": {
+                    "amount": 20
+                },
+                "created_at": 1710746232,
+                "additional_data": {
+                    "reward_generated": false,
+                    "reward": null,
+                    "campaign": null
+                }
+            }
+
+success: **false**
+
+            {
+                "success": false,
+                "response_code": 422,
+                "error": {
+                    "code": "INVALID_DATA",
+                    "description": "Invalid Ext User Id",
+                    "invalid_fields": [
+                        "ext_user_id"
+                    ]
+                }
+            }
+
+
+
+## name: <ins>Sending User Event</ins>
+
+desc: Sending User Event 
+
+method: **"POST"**
+
+url: *"v5/{{partner-id}}/user_event
+
+example : /v5/12345bef00abc/user_event
 
     body :
              { "ext_user_id": "7828011085", "event_key": "mutli_reward_event", "event_data": { "amount" : 20 }}
